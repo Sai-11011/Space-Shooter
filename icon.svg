@@ -1,0 +1,29 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#040B13" rx="64" />
+  
+  <g stroke="#00FFFF" stroke-width="2" stroke-opacity="0.3">
+    <line x1="256" y1="512" x2="256" y2="0" />
+    <line x1="0" y1="512" x2="200" y2="0" />
+    <line x1="512" y1="512" x2="312" y2="0" />
+  </g>
+
+  <defs>
+    <filter id="neon">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g transform="translate(256, 256) rotate(-45)" filter="url(#neon)">
+    <path d="M -20 60 L 0 120 L 20 60 Z" fill="#00FFFF" fill-opacity="0.5" />
+    
+    <path d="M -70 70 L 0 -100 L 70 70 L 0 40 Z" fill="#00FFFF" />
+    
+    <path d="M -40 50 L 0 -85 L 40 50 L 0 30 Z" fill="#FFFFFF" />
+    
+    <circle cx="0" cy="-100" r="15" fill="#FFFFFF" />
+  </g>
+  
+  <rect x="100" y="150" width="15" height="15" fill="#FF00FF" fill-opacity="0.6" />
+  <rect x="400" y="300" width="10" height="10" fill="#00FFFF" fill-opacity="0.6" />
+</svg>
