@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://wps0hpecyxnr"]
+
+[ext_resource type="Script" uid="uid://bqmvg6f4uvrga" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cbcqbll54pg2b" path="res://Assets/Spaceships/MC/Spaceships-1.png" id="1_v0iea"]
+
+[node name="Player" type="CharacterBody2D" unique_id=466430305]
+script = ExtResource("1_cvnsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459949071]
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=686200216]
+polygon = PackedVector2Array(0, -31, -22, 14, 0, 21, 22, 13)
