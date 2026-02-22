@@ -5,4 +5,6 @@
 [node name="Main" type="Node2D" unique_id=1308249610]
 
 [node name="Player" parent="." unique_id=466430305 instance=ExtResource("1_jjgbg")]
-position = Vector2(153, 121)
+position = Vector2(563, 267)
+
+[node name="BulletContainer" type="Node" parent="." unique_id=316839504]
