@@ -47,8 +47,8 @@ shape = SubResource("RectangleShape2D_8gbba")
 [node name="Timers" type="Node" parent="." unique_id=251021780]
 
 [node name="AsteroidTimer" type="Timer" parent="Timers" unique_id=2020795999]
-wait_time = 0.6
 autostart = true
+ignore_time_scale = true
 
 [node name="AsteroidsContainer" type="Node" parent="." unique_id=612218175]
 

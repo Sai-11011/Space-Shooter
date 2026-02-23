@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://be3g1my4xgjv3"]
 
-[ext_resource type="Texture2D" uid="uid://bet0vu2jsrd7q" path="res://Assets/Spaceships/MC/Spaceships-2.png" id="1_3yg1c"]
 [ext_resource type="Script" uid="uid://dui8jej7g05ki" path="res://Scripts/asteroids.gd" id="1_ybrt5"]
+[ext_resource type="Texture2D" uid="uid://cc4h6b0u3wfqp" path="res://Assets/Enemies/Asteroid.png" id="2_ybrt5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ysfi"]
-radius = 29.274563
+radius = 24.0
 
 [node name="Asteroids" type="Area2D" unique_id=1334470604]
 collision_layer = 32
@@ -15,9 +15,7 @@ script = ExtResource("1_ybrt5")
 shape = SubResource("CircleShape2D_7ysfi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2085453743]
-rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_3yg1c")
+texture = ExtResource("2_ybrt5")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1851941645]
 

@@ -2,9 +2,14 @@ extends Area2D
 
 @export var speed : float = 150
 @export var health : int = 1
+@onready var asteroid_sprite = $Sprite2D
+
+func _ready() -> void:
+	asteroid_sprite.rotation = randi_range(0,360)
 
 func _physics_process(delta: float) -> void:
 	global_position += transform.x * speed * delta
+	asteroid_sprite.rotation += 3*delta
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
