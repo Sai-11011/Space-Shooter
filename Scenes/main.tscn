@@ -1,10 +1,55 @@
 [gd_scene format=3 uid="uid://cx2pqbupj44x2"]
 
+[ext_resource type="Script" uid="uid://jcm4tb0r17k8" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://Scenes/player.tscn" id="1_jjgbg"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
+size = Vector2(1280, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+size = Vector2(10, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(10, 720)
+
 [node name="Main" type="Node2D" unique_id=1308249610]
+script = ExtResource("1_bo1nx")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=466430305 instance=ExtResource("1_jjgbg")]
-position = Vector2(563, 267)
+position = Vector2(640, 360)
+collision_layer = 16
+collision_mask = 255
 
 [node name="BulletContainer" type="Node" parent="." unique_id=316839504]
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=235337300]
+collision_mask = 20
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="UpperBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=1282891474]
+position = Vector2(640, 0)
+shape = SubResource("RectangleShape2D_jjgbg")
+
+[node name="LowerBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=316185013]
+position = Vector2(640, 720)
+shape = SubResource("RectangleShape2D_jjgbg")
+
+[node name="LeftBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=50291085]
+position = Vector2(0, 360)
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="RightBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=1395320507]
+position = Vector2(1280, 360)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="Timers" type="Node" parent="." unique_id=251021780]
+
+[node name="AsteroidTimer" type="Timer" parent="Timers" unique_id=2020795999]
+wait_time = 0.6
+autostart = true
+
+[node name="AsteroidsContainer" type="Node" parent="." unique_id=612218175]
+
+[connection signal="timeout" from="Timers/AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
