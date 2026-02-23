@@ -1,9 +1,9 @@
 extends Area2D
 
-var speed = 150
-var health = 1
+@export var speed : float = 150
+@export var health : int = 1
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	global_position += transform.x * speed * delta
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

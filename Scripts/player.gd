@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED := 300.0
+@export var SPEED := 300.0
 
 const bullet_scene := preload("res://Scenes/bullet.tscn")
 @onready var  bullet_timer = $Timers/BulletTimer
