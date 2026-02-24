@@ -19,7 +19,7 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." unique_id=466430305 instance=ExtResource("1_jjgbg")]
 position = Vector2(640, 360)
 collision_layer = 16
-collision_mask = 255
+collision_mask = 53
 
 [node name="BulletContainer" type="Node" parent="." unique_id=316839504]
 
@@ -50,6 +50,13 @@ shape = SubResource("RectangleShape2D_8gbba")
 autostart = true
 ignore_time_scale = true
 
+[node name="InvincibilityTimer" type="Timer" parent="Timers" unique_id=2048231316]
+one_shot = true
+
 [node name="AsteroidsContainer" type="Node" parent="." unique_id=612218175]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1277085559]
+offset = Vector2(640, 360)
+
 [connection signal="timeout" from="Timers/AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="Timers/InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @export var SPEED := 300.0
+@export var health := 3
 
 const bullet_scene := preload("res://Scenes/bullet.tscn")
+
 @onready var  bullet_timer = $Timers/BulletTimer
 @onready var bullet_start_position = $Marker2D
 
@@ -24,3 +26,7 @@ func shoot() -> void:
 	bullet.global_rotation = global_rotation
 	get_tree().root.get_node("Main/BulletContainer").add_child(bullet)
 	
+func take_damage():
+	get_tree().root.get_node("Main").invincibility()
+	if health <= 0:
+		get_tree().paused = true
