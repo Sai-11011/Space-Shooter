@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://jcm4tb0r17k8" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://r58ybsu8lo7k" path="res://Assets/Extras/Heart-1.png.png" id="3_8gbba"]
+[ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="4_jjvhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
 size = Vector2(1280, 10)
@@ -46,11 +48,15 @@ shape = SubResource("RectangleShape2D_8gbba")
 
 [node name="Timers" type="Node" parent="." unique_id=251021780]
 
-[node name="AsteroidTimer" type="Timer" parent="Timers" unique_id=2020795999]
+[node name="EnemyTimer" type="Timer" parent="Timers" unique_id=2020795999]
 autostart = true
 ignore_time_scale = true
 
-[node name="InvincibilityTimer" type="Timer" parent="Timers" unique_id=2048231316]
+[node name="NextWave" type="Timer" parent="Timers" unique_id=634781623]
+wait_time = 5.0
+one_shot = true
+
+[node name="CountdownTimer" type="Timer" parent="Timers" unique_id=504638921]
 one_shot = true
 
 [node name="AsteroidsContainer" type="Node" parent="." unique_id=612218175]
@@ -58,5 +64,157 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1277085559]
 offset = Vector2(640, 360)
 
-[connection signal="timeout" from="Timers/AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
-[connection signal="timeout" from="Timers/InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
+[node name="UI" type="CanvasLayer" parent="." unique_id=770510928]
+
+[node name="GameUI" type="Control" parent="UI" unique_id=383443740]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainerTop" type="MarginContainer" parent="UI/GameUI" unique_id=326548114]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 630
+
+[node name="Hearts" type="HBoxContainer" parent="UI/GameUI/MarginContainerTop" unique_id=346903930]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/GameUI/MarginContainerTop/Hearts" unique_id=1737187583]
+layout_mode = 2
+texture = ExtResource("3_8gbba")
+
+[node name="Label" type="Label" parent="UI/GameUI/MarginContainerTop/Hearts" unique_id=1788194034]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "X 3"
+uppercase = true
+
+[node name="Score" type="HBoxContainer" parent="UI/GameUI/MarginContainerTop" unique_id=571924319]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="UI/GameUI/MarginContainerTop/Score" unique_id=213329114]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Score : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waves" type="HBoxContainer" parent="UI/GameUI/MarginContainerTop" unique_id=1823153667]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="UI/GameUI/MarginContainerTop/Waves" unique_id=1424872374]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Wave = 1"
+
+[node name="MarginContainerBottom" type="MarginContainer" parent="UI/GameUI" unique_id=595079174]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 630
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="CountDown" type="HBoxContainer" parent="UI/GameUI/MarginContainerBottom" unique_id=2063091420]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="UI/GameUI/MarginContainerBottom/CountDown" unique_id=2049517472]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 20
+text = "next wave in : "
+
+[node name="seconds" type="Label" parent="UI/GameUI/MarginContainerBottom/CountDown" unique_id=27604703]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "5"
+
+[node name="MarginContainerLeft" type="MarginContainer" parent="UI/GameUI" unique_id=176355977]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 930
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameUI/MarginContainerLeft" unique_id=1168056030]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/GameUI/MarginContainerLeft/VBoxContainer" unique_id=889802645]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Current Wave Enemies:"
+
+[node name="EnemiesList" type="Label" parent="UI/GameUI/MarginContainerLeft/VBoxContainer" unique_id=2138760937]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="StartUI" type="Control" parent="UI" unique_id=2090631710]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuUI" type="Control" parent="UI" unique_id=717834902]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart" type="Button" parent="UI/MenuUI" unique_id=1218714345]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -15.5
+offset_right = 32.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jjvhh")
+theme_override_font_sizes/font_size = 36
+text = "Restart"
+
+[connection signal="timeout" from="Timers/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="Timers/CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="pressed" from="UI/MenuUI/Restart" to="." method="_on_restart_pressed"]

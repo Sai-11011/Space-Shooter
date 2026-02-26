@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wps0hpecyxnr"]
 
 [ext_resource type="Script" uid="uid://bqmvg6f4uvrga" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://cbcqbll54pg2b" path="res://Assets/Spaceships/MC/Spaceships-1.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://cbcqbll54pg2b" path="res://Assets/MC/Spaceships-1.png" id="1_v0iea"]
 
 [node name="Player" type="CharacterBody2D" unique_id=466430305 groups=["player"]]
 z_index = 1
@@ -11,6 +11,9 @@ script = ExtResource("1_cvnsp")
 
 [node name="BulletTimer" type="Timer" parent="Timers" unique_id=840710794]
 wait_time = 0.35
+one_shot = true
+
+[node name="InvincibilityTimer" type="Timer" parent="Timers" unique_id=1721197752]
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459949071]
@@ -26,3 +29,5 @@ metadata/_edit_lock_ = true
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2107424118]
 position = Vector2(44, 0)
 metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="Timers/InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

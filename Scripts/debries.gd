@@ -2,6 +2,6 @@ extends CPUParticles2D
 
 func _ready():
 	emitting = true 
-	await get_tree().create_timer(lifetime).timeout
-	
+
+func _on_finished() -> void:
 	queue_free()
