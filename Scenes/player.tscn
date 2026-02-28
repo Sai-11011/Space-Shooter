@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://wps0hpecyxnr"]
 
 [ext_resource type="Script" uid="uid://bqmvg6f4uvrga" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://cbcqbll54pg2b" path="res://Assets/MC/Spaceships-1.png" id="1_v0iea"]
 
 [node name="Player" type="CharacterBody2D" unique_id=466430305 groups=["player"]]
 z_index = 1
@@ -18,7 +17,7 @@ one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459949071]
 rotation = 1.5707964
-texture = ExtResource("1_v0iea")
+scale = Vector2(1.3, 1.3)
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=686200216]

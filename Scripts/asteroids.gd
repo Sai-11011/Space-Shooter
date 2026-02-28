@@ -1,10 +1,13 @@
 extends Area2D
 
-@export var speed : float = 150
-@export var health : int = 1
-const score : int  = 1
 @onready var asteroid_sprite = $Sprite2D
 @onready var debries_scene:= load(Global.SCENES.debries)
+
+const data := Global.ENEMY_DATA.asteroid
+var speed : float = data.speed
+var health : int = data.health
+const score : int  = data.score
+const damage : int = data.damage
 
 func _ready() -> void:
 	asteroid_sprite.rotation_degrees = randi_range(0,360)
@@ -18,7 +21,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.take_damage()
+		body.take_damage(damage)
 		spawn_debries()
 		queue_free() 
 

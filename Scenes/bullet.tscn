@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0pmpn3i4eeyr"]
 
 [ext_resource type="Script" uid="uid://dqtlfp18ab0sd" path="res://Scripts/bullet.gd" id="1_oduel"]
-[ext_resource type="Texture2D" uid="uid://brpjum1wuypme" path="res://Assets/Spaceships/Extras/bullet.png" id="1_xjght"]
+[ext_resource type="Texture2D" uid="uid://brpjum1wuypme" path="res://Assets/Extras/bullet.png" id="1_xjght"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oduel"]
 radius = 2.0
@@ -19,6 +19,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=54841401]
+modulate = Color(0, 0.8980392, 1, 1)
 rotation = -1.5707964
 scale = Vector2(0.5, 0.25)
 texture = ExtResource("1_xjght")

@@ -28,7 +28,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/borderless=true
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="uid://dxiqub8anei0g"
+mouse_cursor/custom_image="uid://45poew1w6b2g"
 
 [global_group]
 
@@ -97,3 +97,4 @@ start={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.030887181, 0.019664077, 0.105291955, 1)

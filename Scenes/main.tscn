@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://jcm4tb0r17k8" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="2_6bp64"]
 [ext_resource type="Texture2D" uid="uid://r58ybsu8lo7k" path="res://Assets/Extras/Heart-1.png.png" id="3_8gbba"]
 [ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="4_jjvhh"]
+[ext_resource type="FontFile" uid="uid://je3eoyhvahdc" path="res://Assets/Fonts/ShareTechMono-Regular.ttf" id="4_kry3j"]
+[ext_resource type="FontFile" uid="uid://c4ulioxj6mf7b" path="res://Assets/Fonts/Orbitron-VariableFont_wght.ttf" id="5_21xkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
 size = Vector2(1280, 10)
@@ -14,12 +17,245 @@ size = Vector2(10, 720)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(10, 720)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bp64"]
+bg_color = Color(0.03137255, 0.019607844, 0.105882354, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hibaj"]
+bg_color = Color(1, 0.54901963, 0.25882354, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 1, 1, 1)
+border_blend = true
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdsj5"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4r6"]
+bg_color = Color(0, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.54901963, 0.25882354, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt3je"]
+bg_color = Color(1, 0.54901963, 0.25882354, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 1, 1, 1)
+border_blend = true
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pmx8"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u50mg"]
+bg_color = Color(0, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.54901963, 0.25882354, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbgmd"]
+bg_color = Color(1, 0.54901963, 0.25882354, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 1, 1, 1)
+border_blend = true
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1w6v2"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ueoa1"]
+bg_color = Color(0, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.54901963, 0.25882354, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vcvc"]
+bg_color = Color(1, 0.54901963, 0.25882354, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 1, 1, 1)
+border_blend = true
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k868"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpc6h"]
+bg_color = Color(0, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.54901963, 0.25882354, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344ge"]
+bg_color = Color(0, 0.8980392, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1ilt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xkr"]
+bg_color = Color(0, 0.8980392, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.54901963, 0.25882354, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynf5e"]
+bg_color = Color(1, 0.54901963, 0.25882354, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iyac"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
+bg_color = Color(1, 0.54901963, 0.25882354, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 1, 1, 1)
+border_blend = true
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdnlq"]
+bg_color = Color(0, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k12tt"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1bgf"]
+bg_color = Color(0, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.54901963, 0.25882354, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkdf5"]
+bg_color = Color(1, 0.54901963, 0.25882354, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3802"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fevyy"]
+bg_color = Color(1, 0.54901963, 0.25882354, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 1, 1, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsu2k"]
+content_margin_left = 80.0
+content_margin_top = 30.0
+content_margin_right = 80.0
+content_margin_bottom = 30.0
+bg_color = Color(0.2901961, 0.33333334, 0.40784314, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+border_blend = true
+
 [node name="Main" type="Node2D" unique_id=1308249610]
 script = ExtResource("1_bo1nx")
 metadata/_edit_lock_ = true
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=122961221]
+modulate = Color(1, 1, 1, 0.39215687)
+show_behind_parent = true
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_6bp64")
+
 [node name="Player" parent="." unique_id=466430305 instance=ExtResource("1_jjgbg")]
 position = Vector2(640, 360)
+rotation = -1.5707964
 collision_layer = 16
 collision_mask = 53
 
@@ -49,8 +285,6 @@ shape = SubResource("RectangleShape2D_8gbba")
 [node name="Timers" type="Node" parent="." unique_id=251021780]
 
 [node name="EnemyTimer" type="Timer" parent="Timers" unique_id=2020795999]
-autostart = true
-ignore_time_scale = true
 
 [node name="NextWave" type="Timer" parent="Timers" unique_id=634781623]
 wait_time = 5.0
@@ -59,7 +293,7 @@ one_shot = true
 [node name="CountdownTimer" type="Timer" parent="Timers" unique_id=504638921]
 one_shot = true
 
-[node name="AsteroidsContainer" type="Node" parent="." unique_id=612218175]
+[node name="EnemiesContainer" type="Node" parent="." unique_id=612218175]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1277085559]
 offset = Vector2(640, 360)
@@ -73,6 +307,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="MarginContainerTop" type="MarginContainer" parent="UI/GameUI" unique_id=326548114]
 layout_direction = 2
@@ -145,6 +381,7 @@ size_flags_horizontal = 8
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_6bp64")
 text = "next wave in : "
 
 [node name="seconds" type="Label" parent="UI/GameUI/MarginContainerBottom/CountDown" unique_id=27604703]
@@ -152,69 +389,287 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
 
-[node name="MarginContainerLeft" type="MarginContainer" parent="UI/GameUI" unique_id=176355977]
+[node name="StartUI" type="Control" parent="UI" unique_id=2090631710]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Background" type="ColorRect" parent="UI/StartUI" unique_id=792362632]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 930
-theme_override_constants/margin_bottom = 100
+color = Color(0.105882354, 0.078431375, 0.24705882, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameUI/MarginContainerLeft" unique_id=1168056030]
+[node name="CenterLayout" type="CenterContainer" parent="UI/StartUI" unique_id=1579063786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="UI/StartUI/CenterLayout" unique_id=424044948]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Title" type="Label" parent="UI/StartUI/CenterLayout/MainVBox" unique_id=535202762]
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("4_jjvhh")
+theme_override_font_sizes/font_size = 100
+text = "SPACE SHOOTER"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/StartUI/CenterLayout/MainVBox" unique_id=1435274770]
+layout_mode = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_right = 350
+
+[node name="VBoxForButtons" type="VBoxContainer" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer" unique_id=1331099326]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=1970622520]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_hibaj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pdsj5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ee4r6")
+text = "Play"
+
+[node name="MainMenuButton" type="Button" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=307596262]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_gt3je")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3pmx8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u50mg")
+text = "Main Menu"
+
+[node name="OptionsButton" type="Button" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=1319886605]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbgmd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1w6v2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ueoa1")
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=43189985]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_6vcvc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7k868")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hpc6h")
+text = "Quit
+"
+
+[node name="GameOverUI" type="Control" parent="UI" unique_id=717834902]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ScreenDimmer" type="ColorRect" parent="UI/GameOverUI" unique_id=989988435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03137255, 0.019607844, 0.105882354, 0.5882353)
+
+[node name="CenterLayout" type="CenterContainer" parent="UI/GameOverUI" unique_id=2055799692]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+
+[node name="MainVBox" type="VBoxContainer" parent="UI/GameOverUI/CenterLayout" unique_id=45418853]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="GameoverLabel" type="Label" parent="UI/GameOverUI/CenterLayout/MainVBox" unique_id=49376975]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+theme_override_colors/font_outline_color = Color(0.9490196, 0, 0.5372549, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_jjvhh")
+theme_override_font_sizes/font_size = 96
+text = "GAME OVER"
+
+[node name="StatHBox" type="HBoxContainer" parent="UI/GameOverUI/CenterLayout/MainVBox" unique_id=2130552964]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="WaveLabel" type="Label" parent="UI/GameOverUI/CenterLayout/MainVBox/StatHBox" unique_id=1494355974]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_21xkr")
+theme_override_font_sizes/font_size = 40
+text = "WAVE : 1"
+
+[node name="ScoreLabel" type="Label" parent="UI/GameOverUI/CenterLayout/MainVBox/StatHBox" unique_id=1372367932]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 40
+text = "SCORE : 0"
+
+[node name="ButtonHBox" type="MarginContainer" parent="UI/GameOverUI/CenterLayout/MainVBox" unique_id=1133189474]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOverUI/CenterLayout/MainVBox/ButtonHBox" unique_id=1378188891]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="RestartButton" type="Button" parent="UI/GameOverUI/CenterLayout/MainVBox/ButtonHBox/VBoxContainer" unique_id=1218714345]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_344ge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d1ilt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_21xkr")
+text = " Restart "
+
+[node name="MenuButton" type="Button" parent="UI/GameOverUI/CenterLayout/MainVBox/ButtonHBox/VBoxContainer" unique_id=1369081234]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynf5e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6iyac")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hptm8")
+text = " Menu "
+
+[node name="PauseUI" type="Control" parent="UI" unique_id=1979622235]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="UI/PauseUI" unique_id=478498275]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03137255, 0.019607844, 0.105882354, 0.5882353)
+
+[node name="MainSplit" type="HBoxContainer" parent="UI/PauseUI" unique_id=145282541]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="LeftNav" type="VBoxContainer" parent="UI/PauseUI/MainSplit" unique_id=86014452]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Pause" type="Label" parent="UI/PauseUI/MainSplit/LeftNav" unique_id=1033606443]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+theme_override_colors/font_outline_color = Color(0.9490196, 0, 0.5372549, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_jjvhh")
+theme_override_font_sizes/font_size = 80
+text = "Paused"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PauseUI/MainSplit/LeftNav" unique_id=2096476401]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseUI/MainSplit/LeftNav/MarginContainer" unique_id=345531394]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ResumeButton" type="Button" parent="UI/PauseUI/MainSplit/LeftNav/MarginContainer/VBoxContainer" unique_id=837054758]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_fdnlq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k12tt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h1bgf")
+text = "Resume"
+
+[node name="MenuButton" type="Button" parent="UI/PauseUI/MainSplit/LeftNav/MarginContainer/VBoxContainer" unique_id=2018848951]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jkdf5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b3802")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fevyy")
+text = "Menu"
+
+[node name="RightTacticalPanel" type="PanelContainer" parent="UI/PauseUI/MainSplit" unique_id=13121143]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wsu2k")
+
+[node name="TacticalVBox" type="VBoxContainer" parent="UI/PauseUI/MainSplit/RightTacticalPanel" unique_id=1552129006]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="UI/GameUI/MarginContainerLeft/VBoxContainer" unique_id=889802645]
+[node name="Threats" type="Label" parent="UI/PauseUI/MainSplit/RightTacticalPanel/TacticalVBox" unique_id=1000234256]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Current Wave Enemies:"
-
-[node name="EnemiesList" type="Label" parent="UI/GameUI/MarginContainerLeft/VBoxContainer" unique_id=2138760937]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-vertical_alignment = 1
-
-[node name="StartUI" type="Control" parent="UI" unique_id=2090631710]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MenuUI" type="Control" parent="UI" unique_id=717834902]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Restart" type="Button" parent="UI/MenuUI" unique_id=1218714345]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = -15.5
-offset_right = 32.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_jjvhh")
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.99607843, 0.89411765, 0.2509804, 1)
+theme_override_colors/font_outline_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_kry3j")
 theme_override_font_sizes/font_size = 36
-text = "Restart"
+text = "UPCOMING THREATS:"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="EnemiesList" type="Label" parent="UI/PauseUI/MainSplit/RightTacticalPanel/TacticalVBox" unique_id=1009652608]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_kry3j")
+theme_override_font_sizes/font_size = 32
 
 [connection signal="timeout" from="Timers/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="timeout" from="Timers/CountdownTimer" to="." method="_on_countdown_timer_timeout"]
-[connection signal="pressed" from="UI/MenuUI/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/GameOverUI/CenterLayout/MainVBox/ButtonHBox/VBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/PauseUI/MainSplit/LeftNav/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

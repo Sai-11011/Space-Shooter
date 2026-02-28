@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://be3g1my4xgjv3"]
 
 [ext_resource type="Script" uid="uid://dui8jej7g05ki" path="res://Scripts/asteroids.gd" id="1_ybrt5"]
-[ext_resource type="Texture2D" uid="uid://cc4h6b0u3wfqp" path="res://Assets/Enemies/Asteroid.png" id="2_ybrt5"]
+[ext_resource type="Texture2D" uid="uid://b3usk7aefnw8c" path="res://Assets/Enemies/asteroid.png" id="2_ybrt5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ysfi"]
 radius = 24.0

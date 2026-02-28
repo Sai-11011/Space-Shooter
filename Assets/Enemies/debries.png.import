@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3usk7aefnw8c"
-path="res://.godot/imported/asteroid.png-01944d3228d92f8c93d75b32a7dc7c5c.ctex"
+uid="uid://clo1hb3w8ek3u"
+path="res://.godot/imported/debries.png-5b7b2d1710b607d54d45fd4dab22389a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/asteroid.png"
-dest_files=["res://.godot/imported/asteroid.png-01944d3228d92f8c93d75b32a7dc7c5c.ctex"]
+source_file="res://Assets/Enemies/debries.png"
+dest_files=["res://.godot/imported/debries.png-5b7b2d1710b607d54d45fd4dab22389a.ctex"]
 
 [params]
 

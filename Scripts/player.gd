@@ -1,17 +1,37 @@
 extends CharacterBody2D
 
-@export var SPEED := 300.0
-@export var health := 3
+signal health_change
+signal player_died
+
+const data = Global.PLAYER_DATA["1"]
+
+@onready var bullet_scene := load(Global.SCENES.bullet)
+@onready var invincibility_timer := $Timers/InvincibilityTimer
+@onready var  bullet_timer := $Timers/BulletTimer
+@onready var bullet_start_position := $Marker2D
+@onready var player_sprite := $Sprite2D
 var invincible = false
 var flash_tween: Tween
-@onready var bullet_scene := load(Global.SCENES.bullet)
-@onready var invincibility_timer = $Timers/InvincibilityTimer
-@onready var  bullet_timer = $Timers/BulletTimer
-@onready var bullet_start_position = $Marker2D
+
+#from data
+var speed := data.speed
+var health := data.health
+var damage := data.damage
+var max_health := data.max_health
+var max_speed := data.max_speed
+var max_damage := data.max_damage
+var sprite := data.sprite
+
+
+func _ready() -> void:
+	player_sprite.texture = load(sprite)
+
+# CURSORS
+var default_cursor = preload("uid://45poew1w6b2g")
 
 func process_movement() -> void :
 	var direction := Input.get_vector("left", "right", "up", "down")
-	velocity = direction * SPEED 
+	velocity = direction * speed
 	
 func _physics_process(_delta: float) -> void:
 	process_movement()
@@ -27,13 +47,13 @@ func shoot() -> void:
 	bullet.global_rotation = global_rotation
 	get_tree().root.get_node("Main/BulletContainer").add_child(bullet)
 
-func take_damage():
+func take_damage(damaged_health):
 	invincibility()
-	health -= 1
-	get_tree().root.get_node("Main").update_hearts(health)
+	health -= damaged_health
+	health_change.emit(health)
 	if health <= 0:
-		get_tree().paused = true
-		get_node("/root/Main/UI/MenuUI").visible = true
+		player_died.emit()
+		Input.set_custom_mouse_cursor(default_cursor)
 
 func invincibility():
 	flash_tween = create_tween()
