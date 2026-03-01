@@ -21,6 +21,7 @@ boot_splash/hdr_2d=false
 [autoload]
 
 Global="*uid://umdrxxswf2rv"
+PlayerData="*uid://ofaq0ifduwlx"
 
 [display]
 

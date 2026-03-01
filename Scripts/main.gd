@@ -30,7 +30,6 @@ var center_hotspot = Vector2(16, 16)
 @onready var game_over_score := $UI/GameOverUI/CenterLayout/MainVBox/StatHBox/ScoreLabel
 @onready var game_over_wave := $UI/GameOverUI/CenterLayout/MainVBox/StatHBox/WaveLabel
 #UI visibles
-@onready var game_over_container := $UI/GameOverUI/CenterLayout
 @onready var pause_ui_node := $UI/PauseUI
 @onready var start_ui_node := $UI/StartUI
 @onready var gameover_ui_node := $UI/GameOverUI
@@ -136,7 +135,7 @@ func game_over():
 	game_over_score.text = "SCORE : "+ str(score)
 	game_over_wave.text = "WAVE : "+str(current_wave)
 	gameover_ui_node.visible = true
-	Global.slam_effect(game_over_container)
+	Global.slam_effect(gameover_ui_node)
 
 func _on_player_died():
 	get_tree().paused = true
@@ -148,6 +147,7 @@ func pause():
 	pause_ui_node.visible = true
 	Input.set_custom_mouse_cursor(default_cursor)
 
+#buttons
 func _on_resume_button_pressed() -> void:
 	pause_ui_node.visible = false
 	Input.set_custom_mouse_cursor(target_cursor, Input.CURSOR_ARROW, center_hotspot)
@@ -181,3 +181,6 @@ func _on_enemy_timer_timeout() -> void:
 		wave_init = true
 	else:
 		select_enemies_to_spawn()
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

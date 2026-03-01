@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://c4sfrp1apvpjs"]
+
+[ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="1_1ehe0"]
+[ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://x6norgv5bcn4" path="res://Assets/Extras/Coins-32.png" id="3_n45e2"]
+[ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Assets/Theme/Buttons.tres" id="4_ce3w2"]
+
+[node name="MainMenu" type="Control" unique_id=1816575638]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1981384502]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1ehe0")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1009308832]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="TopHBox" type="HBoxContainer" parent="MarginContainer" unique_id=1534433986]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 250
+
+[node name="Title" type="Label" parent="MarginContainer/TopHBox" unique_id=366128988]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 48
+text = "Space Shooter"
+
+[node name="Space" type="Control" parent="MarginContainer/TopHBox" unique_id=968335954]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="CoinBox" type="HBoxContainer" parent="MarginContainer/TopHBox" unique_id=1273205026]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/TopHBox/CoinBox" unique_id=1272114997]
+layout_mode = 2
+texture = ExtResource("3_n45e2")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Amount" type="Label" parent="MarginContainer/TopHBox/CoinBox" unique_id=955161957]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.27450982, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterMenu" type="CenterContainer" parent="MarginContainer" unique_id=1778814166]
+layout_mode = 2
+
+[node name="MainButtons" type="VBoxContainer" parent="MarginContainer/CenterMenu" unique_id=287850612]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="PlayButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=387172623]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+theme = ExtResource("4_ce3w2")
+text = "play"
+
+[node name="HangerButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=96266522]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+theme = ExtResource("4_ce3w2")
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "Hanger"
+
+[node name="ShopButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=227073780]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+theme = ExtResource("4_ce3w2")
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "Shop"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=695734881]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+theme = ExtResource("4_ce3w2")
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "Options"
+
+[node name="BackButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=2060988598]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+theme = ExtResource("4_ce3w2")
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "Go Back"
