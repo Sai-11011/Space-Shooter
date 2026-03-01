@@ -11,6 +11,7 @@ var tween : Tween
 #CURSOR
 var target_cursor = preload("uid://ccpme5g6t3g1u")
 var default_cursor = preload("uid://45poew1w6b2g")
+@onready var main_menu := load(Global.SCENES.main_menu)
 var center_hotspot = Vector2(16, 16)
 # ALL NODES
 
@@ -31,7 +32,6 @@ var center_hotspot = Vector2(16, 16)
 @onready var game_over_wave := $UI/GameOverUI/CenterLayout/MainVBox/StatHBox/WaveLabel
 #UI visibles
 @onready var pause_ui_node := $UI/PauseUI
-@onready var start_ui_node := $UI/StartUI
 @onready var gameover_ui_node := $UI/GameOverUI
 #CURRENT
 var score :int = 0
@@ -42,12 +42,7 @@ var count : int = 5
 
 func _ready() -> void:
 	update_hearts(player_node.health)
-	if Global.instant_restart:
-		start_ui_node.visible = false
-		play()
-	else:
-		get_tree().paused = true
-		enemy_timer_node.stop()
+	play()
 	player_node.health_change.connect(update_hearts)
 	player_node.player_died.connect(_on_player_died)
 	
@@ -159,10 +154,6 @@ func play():
 	get_tree().paused = false
 	enemy_timer_node.start()
 
-func _on_play_button_pressed() -> void:
-	start_ui_node.visible = false
-	play()
-
 
 func _on_restart_pressed() -> void:
 	get_tree().paused = false
@@ -182,5 +173,6 @@ func _on_enemy_timer_timeout() -> void:
 	else:
 		select_enemies_to_spawn()
 
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+
+func _on_menu_button_pressed() -> void:
+	get_tree().change_scene_to_packed(main_menu)

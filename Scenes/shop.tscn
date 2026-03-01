@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://dgytnrptoqh6y"]
+
+[ext_resource type="Script" uid="uid://dr7636328nofk" path="res://Scripts/shop.gd" id="1_fdj0q"]
+[ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="1_io27d"]
+[ext_resource type="Texture2D" uid="uid://x6norgv5bcn4" path="res://Assets/Extras/Coins-32.png" id="2_fdj0q"]
+[ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="3_k6jq0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io27d"]
+bg_color = Color(0.06666667, 0.043137256, 0.06666667, 0.78431374)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.9411765, 1, 1)
+
+[node name="Shop" type="Control" unique_id=350155529]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fdj0q")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1546902049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer" unique_id=1830671557]
+layout_mode = 2
+
+[node name="TopHBox" type="HBoxContainer" parent="MarginContainer/MainVBox" unique_id=2050326806]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 210
+
+[node name="Title" type="Label" parent="MarginContainer/MainVBox/TopHBox" unique_id=9960770]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_io27d")
+theme_override_font_sizes/font_size = 48
+text = "Shop"
+vertical_alignment = 1
+
+[node name="CoinBox" type="HBoxContainer" parent="MarginContainer/MainVBox/TopHBox" unique_id=215189890]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/MainVBox/TopHBox/CoinBox" unique_id=1046704663]
+layout_mode = 2
+texture = ExtResource("2_fdj0q")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Amount" type="Label" parent="MarginContainer/MainVBox/TopHBox/CoinBox" unique_id=980562934]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.27450982, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CategoriesTab" type="HBoxContainer" parent="MarginContainer/MainVBox" unique_id=1076370042]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="ShipTab" type="Button" parent="MarginContainer/MainVBox/CategoriesTab" unique_id=581038467]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 30
+text = "Space Ships"
+
+[node name="ConsumablesTab" type="Button" parent="MarginContainer/MainVBox/CategoriesTab" unique_id=737489687]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 30
+text = "Consumables"
+
+[node name="MainSplit" type="HBoxContainer" parent="MarginContainer/MainVBox" unique_id=1473482004]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 60
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainVBox/MainSplit" unique_id=1017657040]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/MainVBox/MainSplit/ScrollContainer" unique_id=1536640411]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+
+[node name="Button" type="Button" parent="MarginContainer/MainVBox/MainSplit/ScrollContainer/GridContainer" unique_id=1855016313]
+layout_mode = 2
+text = "item1"
+
+[node name="Button2" type="Button" parent="MarginContainer/MainVBox/MainSplit/ScrollContainer/GridContainer" unique_id=268637238]
+layout_mode = 2
+text = "item2"
+
+[node name="Button3" type="Button" parent="MarginContainer/MainVBox/MainSplit/ScrollContainer/GridContainer" unique_id=1537997105]
+layout_mode = 2
+text = "item3"
+
+[node name="Button4" type="Button" parent="MarginContainer/MainVBox/MainSplit/ScrollContainer/GridContainer" unique_id=851808252]
+layout_mode = 2
+text = "item4"
+
+[node name="ShowcasePanel" type="PanelContainer" parent="MarginContainer/MainVBox/MainSplit" unique_id=1404257094]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_io27d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainVBox/MainSplit/ShowcasePanel" unique_id=35138435]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainVBox/MainSplit/ShowcasePanel/VBoxContainer" unique_id=1516331284]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainVBox/MainSplit/ShowcasePanel/VBoxContainer/CenterContainer" unique_id=1468300946]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="PreviewFram" type="TextureRect" parent="MarginContainer/MainVBox/MainSplit/ShowcasePanel/VBoxContainer/CenterContainer/MarginContainer" unique_id=1971511311]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="MarginContainer/MainVBox/MainSplit/ShowcasePanel/VBoxContainer" unique_id=1807752798]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_io27d")
+theme_override_font_sizes/font_size = 36
+
+[node name="ItemDescription" type="Label" parent="MarginContainer/MainVBox/MainSplit/ShowcasePanel/VBoxContainer" unique_id=1983402130]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0.8392157, 0.8784314, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="BuyButton" type="Button" parent="MarginContainer/MainVBox/MainSplit/ShowcasePanel/VBoxContainer" unique_id=1350654116]
+layout_mode = 2
+theme = ExtResource("3_k6jq0")
+
+[node name="NavBack" type="HBoxContainer" parent="MarginContainer/MainVBox" unique_id=557411447]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/MainVBox/NavBack" unique_id=498865324]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/MainVBox/NavBack/BackButton" to="." method="_on_back_button_pressed"]

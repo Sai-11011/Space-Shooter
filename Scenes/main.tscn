@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="4_jjvhh"]
 [ext_resource type="FontFile" uid="uid://je3eoyhvahdc" path="res://Assets/Fonts/ShareTechMono-Regular.ttf" id="4_kry3j"]
 [ext_resource type="FontFile" uid="uid://c4ulioxj6mf7b" path="res://Assets/Fonts/Orbitron-VariableFont_wght.ttf" id="5_21xkr"]
-[ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Assets/Theme/Buttons.tres" id="6_344ge"]
+[ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="6_344ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
 size = Vector2(1280, 10)
@@ -20,9 +20,6 @@ size = Vector2(10, 720)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bp64"]
 bg_color = Color(0.03137255, 0.019607844, 0.105882354, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdsj5"]
-draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344ge"]
 bg_color = Color(0, 0.8980392, 1, 1)
@@ -234,83 +231,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "5"
 
-[node name="StartUI" type="Control" parent="UI" unique_id=2090631710]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="Background" type="ColorRect" parent="UI/StartUI" unique_id=792362632]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.03137255, 0.019607844, 0.105882354, 1)
-
-[node name="TextureRect" type="TextureRect" parent="UI/StartUI/Background" unique_id=490429999]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_6bp64")
-
-[node name="CenterLayout" type="CenterContainer" parent="UI/StartUI" unique_id=1579063786]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MainVBox" type="VBoxContainer" parent="UI/StartUI/CenterLayout" unique_id=424044948]
-layout_mode = 2
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="Title" type="Label" parent="UI/StartUI/CenterLayout/MainVBox" unique_id=535202762]
-layout_mode = 2
-theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("4_jjvhh")
-theme_override_font_sizes/font_size = 100
-text = "SPACE SHOOTER"
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/StartUI/CenterLayout/MainVBox" unique_id=1435274770]
-layout_mode = 2
-theme_override_constants/margin_left = 350
-theme_override_constants/margin_right = 350
-
-[node name="VBoxForButtons" type="VBoxContainer" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer" unique_id=1331099326]
-layout_mode = 2
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="PlayButton" type="Button" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=1970622520]
-layout_mode = 2
-theme = ExtResource("6_344ge")
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 48
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pdsj5")
-text = "Play"
-
-[node name="MainMenuButton" type="Button" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=307596262]
-layout_mode = 2
-theme = ExtResource("6_344ge")
-theme_override_font_sizes/font_size = 48
-text = "Main Menu"
-
-[node name="QuitButton" type="Button" parent="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=43189985]
-layout_mode = 2
-theme = ExtResource("6_344ge")
-text = "Quit
-"
-
 [node name="GameOverUI" type="Control" parent="UI" unique_id=717834902]
 process_mode = 3
 visible = false
@@ -401,6 +321,7 @@ text = " Menu "
 
 [node name="PauseUI" type="Control" parent="UI" unique_id=1979622235]
 process_mode = 2
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -500,7 +421,7 @@ theme_override_font_sizes/font_size = 32
 
 [connection signal="timeout" from="Timers/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="timeout" from="Timers/CountdownTimer" to="." method="_on_countdown_timer_timeout"]
-[connection signal="pressed" from="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="UI/StartUI/CenterLayout/MainVBox/MarginContainer/VBoxForButtons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="UI/GameOverUI/CenterLayout/MainVBox/ButtonHBox/VBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UI/GameOverUI/CenterLayout/MainVBox/ButtonHBox/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="UI/PauseUI/MainSplit/LeftNav/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="UI/PauseUI/MainSplit/LeftNav/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

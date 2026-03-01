@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bfhhy2axnjpom"]
+
+[ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="1_avrgi"]
+[ext_resource type="Script" uid="uid://ds3va2ig1v6pg" path="res://Scripts/start_ui.gd" id="1_wfxj5"]
+[ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="2_wfxj5"]
+[ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="3_q7rna"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdsj5"]
+draw_center = false
+
+[node name="StartUI" type="Control" unique_id=867883504]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wfxj5")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=1935223027]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03137255, 0.019607844, 0.105882354, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=658261707]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_avrgi")
+
+[node name="CenterLayout" type="CenterContainer" parent="." unique_id=870991451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="CenterLayout" unique_id=838573528]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterLayout/MainVBox" unique_id=798959297]
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_wfxj5")
+theme_override_font_sizes/font_size = 100
+text = "SPACE SHOOTER"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterLayout/MainVBox" unique_id=1109481406]
+layout_mode = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_right = 350
+
+[node name="VBoxForButtons" type="VBoxContainer" parent="CenterLayout/MainVBox/MarginContainer" unique_id=1612628292]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=2134301354]
+layout_mode = 2
+theme = ExtResource("3_q7rna")
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pdsj5")
+text = "Play"
+
+[node name="MainMenuButton" type="Button" parent="CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=705679746]
+layout_mode = 2
+theme = ExtResource("3_q7rna")
+theme_override_font_sizes/font_size = 48
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=1125622585]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("3_q7rna")
+text = "Quit
+"
+
+[connection signal="pressed" from="CenterLayout/MainVBox/MarginContainer/VBoxForButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterLayout/MainVBox/MarginContainer/VBoxForButtons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CenterLayout/MainVBox/MarginContainer/VBoxForButtons/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -3,8 +3,9 @@ extends CharacterBody2D
 signal health_change
 signal player_died
 
-const data = Global.PLAYER_DATA["1"]
-
+@onready var ship_no :String = PlayerData.current_ship_id
+@onready var ship_data :Dictionary = Global.SHIP_TEMPLATES[ship_no]
+@onready var ship_levels = PlayerData.player_save.unlocked_ships[ship_no]
 @onready var bullet_scene := load(Global.SCENES.bullet)
 @onready var invincibility_timer := $Timers/InvincibilityTimer
 @onready var  bullet_timer := $Timers/BulletTimer
@@ -13,18 +14,30 @@ const data = Global.PLAYER_DATA["1"]
 var invincible = false
 var flash_tween: Tween
 
-#from data
-var speed := data.speed
-var health := data.health
-var damage := data.damage
-var max_health := data.max_health
-var max_speed := data.max_speed
-var max_damage := data.max_damage
-var sprite := data.sprite
-
+# Calculated Stats
+var speed : float
+var health : float
+var damage : float
+var fire_rate : float
+var max_health : float
+var sprite : String
 
 func _ready() -> void:
+	# 1. Load the Sprite
+	sprite = ship_data.sprite
 	player_sprite.texture = load(sprite)
+	
+	# 2. Calculate Actual Values: Base + (Growth * Level)
+	speed = ship_data.speed.start + (ship_data.speed.growth * ship_levels.speed_level)
+	health = ship_data.health.start + (ship_data.health.growth * ship_levels.health_level)
+	damage = ship_data.damage.start + (ship_data.damage.growth * ship_levels.damage_level)
+	fire_rate = ship_data.fire_rate.start + (ship_data.fire_rate.growth * ship_levels.fire_rate_level)
+	
+	# Set max health for UI/Healing logic later
+	max_health = health
+	
+	# 3. Apply Fire Rate to the Timer
+	bullet_timer.wait_time = fire_rate
 
 # CURSORS
 var default_cursor = preload("uid://45poew1w6b2g")

@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://c630bxhkysr62"]
+
+[ext_resource type="Script" uid="uid://d2qwbwkamusuv" path="res://Scripts/options.gd" id="1_ww8vx"]
+[ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="2_kftxf"]
+[ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="3_663nc"]
+[ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="4_hvj8k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38txh"]
+draw_center = false
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a0sy"]
+bg_color = Color(0, 0.9411765, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+
+[node name="Options" type="Control" unique_id=823947185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ww8vx")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=192038471]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kftxf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1529461528]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1380033541]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=531886369]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_663nc")
+theme_override_font_sizes/font_size = 64
+text = "system settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=2056635653]
+layout_mode = 2
+
+[node name="SettingsGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer" unique_id=954918903]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 30
+columns = 2
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=143755638]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0.8392157, 0.8784314, 1)
+theme_override_font_sizes/font_size = 32
+text = "Full Screen"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=518265915]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_38txh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5a0sy")
+
+[node name="MasterVolLabel" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=78600311]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0.8392157, 0.8784314, 1)
+theme_override_font_sizes/font_size = 32
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=80484090]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MusicVolLabel" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=1749645306]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0.8392157, 0.8784314, 1)
+theme_override_font_sizes/font_size = 36
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=809703127]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SFXVolLabel" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=1008536890]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0.8392157, 0.8784314, 1)
+theme_override_font_sizes/font_size = 36
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=1485191829]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="NavBack" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=600397547]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/NavBack" unique_id=1833904376]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme = ExtResource("4_hvj8k")
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NavBack/BackButton" to="." method="_on_back_button_pressed"]
