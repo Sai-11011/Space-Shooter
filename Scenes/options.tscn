@@ -119,6 +119,7 @@ layout_mode = 2
 size_flags_vertical = 10
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/NavBack" unique_id=1833904376]
+process_mode = 3
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 theme = ExtResource("4_hvj8k")

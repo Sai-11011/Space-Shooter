@@ -3,11 +3,11 @@ extends Area2D
 @onready var asteroid_sprite = $Sprite2D
 @onready var debries_scene:= load(Global.SCENES.debries)
 
-const data := Global.ENEMY_DATA.asteroid
-var speed : float = data.speed
-var health : int = data.health
-const score : int  = data.score
-const damage : int = data.damage
+const data := Global.ENEMY_DATA.asteroid.normal
+var speed := data.speed
+var health := data.health
+var score := data.score
+var damage := data.damage
 
 func _ready() -> void:
 	asteroid_sprite.rotation_degrees = randi_range(0,360)

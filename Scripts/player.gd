@@ -3,9 +3,8 @@ extends CharacterBody2D
 signal health_change
 signal player_died
 
-@onready var ship_no :String = PlayerData.current_ship_id
-@onready var ship_data :Dictionary = Global.SHIP_TEMPLATES[ship_no]
-@onready var ship_levels = PlayerData.player_save.unlocked_ships[ship_no]
+@onready var ship_no :String = PlayerData.player_save["equipped_ship"]
+@onready var ship_data :Dictionary= PlayerData.player_save["unlocked_ships"][ship_no]
 @onready var bullet_scene := load(Global.SCENES.bullet)
 @onready var invincibility_timer := $Timers/InvincibilityTimer
 @onready var  bullet_timer := $Timers/BulletTimer
@@ -28,10 +27,10 @@ func _ready() -> void:
 	player_sprite.texture = load(sprite)
 	
 	# 2. Calculate Actual Values: Base + (Growth * Level)
-	speed = ship_data.speed.start + (ship_data.speed.growth * ship_levels.speed_level)
-	health = ship_data.health.start + (ship_data.health.growth * ship_levels.health_level)
-	damage = ship_data.damage.start + (ship_data.damage.growth * ship_levels.damage_level)
-	fire_rate = ship_data.fire_rate.start + (ship_data.fire_rate.growth * ship_levels.fire_rate_level)
+	speed = ship_data.speed.stat
+	health = ship_data.health.stat
+	damage = ship_data.damage.stat
+	fire_rate = ship_data.fire_rate.stat
 	
 	# Set max health for UI/Healing logic later
 	max_health = health

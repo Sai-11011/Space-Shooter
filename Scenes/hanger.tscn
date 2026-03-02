@@ -46,6 +46,7 @@ border_width_bottom = 5
 border_blend = true
 
 [node name="Hanger" type="Control" unique_id=466013835]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,12 +134,16 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ybxww")
 
 [node name="ShipSprite" type="TextureRect" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/LeftPanel/ShipFrame" unique_id=1455627243]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 
 [node name="ShipName" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/LeftPanel/ShipFrame" unique_id=152311533]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_sqnvc")
+theme_override_font_sizes/font_size = 24
+text = "NONE"
 
 [node name="ShipNavButtons" type="HBoxContainer" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/LeftPanel" unique_id=295829443]
 layout_mode = 2
@@ -183,13 +188,13 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="StatText" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/HealthRow" unique_id=830192601]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(165, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "health"
+text = "Health : 0"
 
-[node name="LevelText" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/HealthRow" unique_id=751763641]
-custom_minimum_size = Vector2(180, 0)
+[node name="StatValue" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/HealthRow" unique_id=751763641]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "0 -> 0"
@@ -206,13 +211,13 @@ text = "0"
 layout_mode = 2
 
 [node name="StatText" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/DamageRow" unique_id=1990500596]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(165, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "damage: "
+text = "damage: 0"
 
-[node name="LevelText" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/DamageRow" unique_id=1329438913]
-custom_minimum_size = Vector2(180, 0)
+[node name="StatValue" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/DamageRow" unique_id=1329438913]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "0 -> 0"
@@ -229,13 +234,13 @@ text = "0"
 layout_mode = 2
 
 [node name="StatText" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/SpeedRow" unique_id=1900966137]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(165, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "speed: "
+text = "speed: 0"
 
-[node name="LevelText" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/SpeedRow" unique_id=1666988490]
-custom_minimum_size = Vector2(180, 0)
+[node name="StatValue" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/SpeedRow" unique_id=1666988490]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "0 -> 0"
@@ -252,13 +257,13 @@ text = "0"
 layout_mode = 2
 
 [node name="StatText" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/FireRateRow" unique_id=1864088376]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(165, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "Fire rate: "
+text = "Fire rate: 0"
 
-[node name="LevelText" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/FireRateRow" unique_id=788990464]
-custom_minimum_size = Vector2(180, 0)
+[node name="StatValue" type="Label" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel/FireRateRow" unique_id=788990464]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "0 -> 0"
@@ -281,4 +286,6 @@ theme = ExtResource("6_yaibh")
 theme_override_font_sizes/font_size = 36
 text = "Back"
 
+[connection signal="pressed" from="MarginContainer/MainVBox/CenterContainer/ContentSplit/LeftPanel/ShipNavButtons/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="MarginContainer/MainVBox/CenterContainer/ContentSplit/LeftPanel/ShipNavButtons/Right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="MarginContainer/MainVBox/BottomNav/BackButton" to="." method="_on_back_button_pressed"]
