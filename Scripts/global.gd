@@ -2,6 +2,7 @@ extends Node
 
 const MAX_WAVES := 3
 var instant_restart := false
+var coin_sprite := "uid://x6norgv5bcn4"
 
 const SCENES := {
 	"asteroids" : "uid://be3g1my4xgjv3",

@@ -15,8 +15,8 @@ var settings: Dictionary = {
 
 # The Save File: Only stores currency, equipped items, and integer levels.
 var player_save := {
-	"coins": 3000,
-	"equipped_ship": "4",
+	"coins": 300000,
+	"equipped_ship": "1",
 	"unlocked_ships":{
 		"0": {
 			"sprite": Global.SHIP_TEMPLATES["0"]["sprite"],
@@ -107,7 +107,7 @@ func get_upgrade_cost(ship_id: String, stat_name: String) -> int:
 		
 	var cost = template.base_cost * pow(template.cost_mult, current_level)
 	
-	return int(cost) 
+	return int(cost)
 
 func attempt_upgrade(ship_id: String, stat_name: String) -> bool:
 	var current_level = player_save.unlocked_ships[ship_id][stat_name]["level"]
@@ -122,9 +122,18 @@ func attempt_upgrade(ship_id: String, stat_name: String) -> bool:
 		player_save.coins -= cost
 		player_save.unlocked_ships[ship_id][stat_name]["level"] += 1
 		print("Upgrade successful! Level is now: ", player_save.unlocked_ships[ship_id][stat_name]["level"])
-		player_save.unlocked_ships[ship_id][stat_name]["stat"] += Global.SHIP_TEMPLATES.id.stat.growth
+		player_save.unlocked_ships[ship_id][stat_name]["stat"] += Global.SHIP_TEMPLATES[ship_id][stat_name].growth
 		return true
 	else:
 		print("Not enough coins!")
 		return false
 		
+
+func render_coins(coins_node) -> void:
+	coins_node.text = str(player_save.coins)
+	
+func disable_button(button_node) -> void:
+	button_node.disabled = true
+	button_node.focus_mode = Control.FOCUS_NONE
+	if button_node.has_focus():
+		button_node.release_focus()

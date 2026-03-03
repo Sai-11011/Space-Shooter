@@ -21,6 +21,19 @@ size = Vector2(10, 720)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bp64"]
 bg_color = Color(0.03137255, 0.019607844, 0.105882354, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xkr"]
+bg_color = Color(0, 0.8980392, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 0.54901963, 0.25882354, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 5.0
+expand_margin_bottom = 10.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344ge"]
 bg_color = Color(0, 0.8980392, 1, 1)
 border_width_left = 10
@@ -38,18 +51,12 @@ expand_margin_bottom = 10.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xkr"]
-bg_color = Color(0, 0.8980392, 1, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 0.54901963, 0.25882354, 1)
-border_blend = true
-expand_margin_left = 5.0
-expand_margin_top = 10.0
-expand_margin_right = 5.0
-expand_margin_bottom = 10.0
+[sub_resource type="Theme" id="Theme_344ge"]
+Button/font_sizes/font_size = 48
+Button/fonts/font = null
+Button/styles/hover = SubResource("StyleBoxFlat_21xkr")
+Button/styles/normal = SubResource("StyleBoxFlat_344ge")
+Button/styles/pressed = SubResource("StyleBoxFlat_d1ilt")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdnlq"]
 bg_color = Color(0, 1, 1, 1)
@@ -306,6 +313,7 @@ theme_override_constants/separation = 50
 
 [node name="RestartButton" type="Button" parent="UI/GameOverUI/CenterLayout/MainVBox/ButtonHBox/VBoxContainer" unique_id=1218714345]
 layout_mode = 2
+theme = SubResource("Theme_344ge")
 theme_override_colors/font_outline_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 48

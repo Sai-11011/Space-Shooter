@@ -38,7 +38,7 @@ border_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
 border_blend = true
 
 [resource]
-Button/constants/outline_size = 5
+Button/constants/outline_size = 8
 Button/font_sizes/font_size = 48
 Button/styles/focus = SubResource("StyleBoxFlat_6ejen")
 Button/styles/hover = SubResource("StyleBoxFlat_gnx6i")

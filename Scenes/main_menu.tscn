@@ -78,22 +78,30 @@ theme_override_constants/separation = 24
 [node name="PlayButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=387172623]
 custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../ShopButton")
+focus_neighbor_right = NodePath("../../../ShopButton")
+focus_neighbor_bottom = NodePath("../HangerButton")
 theme = ExtResource("4_ce3w2")
 text = "play"
 
 [node name="HangerButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=96266522]
 custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../BackButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../../../ShopButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
 theme = ExtResource("4_ce3w2")
-theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 40
 text = "Hanger"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=695734881]
 custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../BackButton")
+focus_neighbor_top = NodePath("../HangerButton")
+focus_neighbor_right = NodePath("../../../ShopButton")
 theme = ExtResource("4_ce3w2")
-theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 40
 text = "Options"
 
@@ -103,7 +111,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme = ExtResource("4_ce3w2")
-theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 36
 text = "Shop"
 
@@ -113,7 +120,6 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme = ExtResource("4_ce3w2")
-theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 36
 text = "Go Back"
 

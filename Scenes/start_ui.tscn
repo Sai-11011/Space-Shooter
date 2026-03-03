@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ds3va2ig1v6pg" path="res://Scripts/start_ui.gd" id="1_wfxj5"]
 [ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="2_wfxj5"]
 [ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="3_q7rna"]
+[ext_resource type="Theme" uid="uid://dvgu3htclnxq3" path="res://Themes/blue.tres" id="4_q7rna"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdsj5"]
 draw_center = false
@@ -67,14 +68,16 @@ alignment = 1
 
 [node name="PlayButton" type="Button" parent="CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=2134301354]
 layout_mode = 2
-theme = ExtResource("3_q7rna")
-theme_override_constants/outline_size = 5
+focus_neighbor_bottom = NodePath("../MainMenuButton")
+theme = ExtResource("4_q7rna")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pdsj5")
 text = "Play"
 
 [node name="MainMenuButton" type="Button" parent="CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=705679746]
 layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 theme = ExtResource("3_q7rna")
 theme_override_font_sizes/font_size = 48
 text = "Main Menu"
@@ -82,6 +85,7 @@ text = "Main Menu"
 [node name="QuitButton" type="Button" parent="CenterLayout/MainVBox/MarginContainer/VBoxForButtons" unique_id=1125622585]
 process_mode = 3
 layout_mode = 2
+focus_neighbor_top = NodePath("../MainMenuButton")
 theme = ExtResource("3_q7rna")
 text = "Quit
 "

@@ -7,6 +7,11 @@ extends Control
 @onready var shop_scene := load(Global.SCENES.shop)
 @onready var back_scene := load(Global.SCENES.start_ui)
 
+@onready var coins = $MarginContainer/TopHBox/CoinBox/Amount
+
+func _ready() -> void:
+	PlayerData.render_coins(coins)
+
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(main_scene)
 
