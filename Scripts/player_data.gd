@@ -16,7 +16,7 @@ var settings: Dictionary = {
 # The Save File: Only stores currency, equipped items, and integer levels.
 var player_save := {
 	"coins": 300000,
-	"equipped_ship": "1",
+	"equipped_ship": "0",
 	"unlocked_ships":{
 		"0": {
 			"sprite": Global.SHIP_TEMPLATES["0"]["sprite"],
@@ -37,63 +37,63 @@ var player_save := {
 				"stat":Global.SHIP_TEMPLATES["0"].fire_rate.start,
 			}
 		},
-		"1": {
-			"sprite": Global.SHIP_TEMPLATES["1"]["sprite"],
-			"speed":{
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["1"].speed.start,
-			},
-			"health":{
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["1"].health.start,
-			},
-			"damage": {
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["1"].damage.start,
-			},
-			"fire_rate":{ 
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["1"].fire_rate.start,
-			}
-		},
-		"2": {
-			"sprite": Global.SHIP_TEMPLATES["2"]["sprite"],
-			"speed":{
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["2"].speed.start,
-			},
-			"health":{
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["2"].health.start,
-			},
-			"damage": {
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["2"].damage.start,
-			},
-			"fire_rate":{ 
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["2"].fire_rate.start,
-			}
-		},
-		"3": {
-			"sprite": Global.SHIP_TEMPLATES["3"]["sprite"],
-			"speed":{
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["3"].speed.start,
-			},
-			"health":{
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["3"].health.start,
-			},
-			"damage": {
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["3"].damage.start,
-			},
-			"fire_rate":{ 
-				"level":0,
-				"stat":Global.SHIP_TEMPLATES["3"].fire_rate.start,
-			}
-		}
+		#"1": {
+			#"sprite": Global.SHIP_TEMPLATES["1"]["sprite"],
+			#"speed":{
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["1"].speed.start,
+			#},
+			#"health":{
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["1"].health.start,
+			#},
+			#"damage": {
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["1"].damage.start,
+			#},
+			#"fire_rate":{ 
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["1"].fire_rate.start,
+			#}
+		#},
+		#"2": {
+			#"sprite": Global.SHIP_TEMPLATES["2"]["sprite"],
+			#"speed":{
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["2"].speed.start,
+			#},
+			#"health":{
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["2"].health.start,
+			#},
+			#"damage": {
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["2"].damage.start,
+			#},
+			#"fire_rate":{ 
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["2"].fire_rate.start,
+			#}
+		#},
+		#"3": {
+			#"sprite": Global.SHIP_TEMPLATES["3"]["sprite"],
+			#"speed":{
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["3"].speed.start,
+			#},
+			#"health":{
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["3"].health.start,
+			#},
+			#"damage": {
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["3"].damage.start,
+			#},
+			#"fire_rate":{ 
+				#"level":0,
+				#"stat":Global.SHIP_TEMPLATES["3"].fire_rate.start,
+			#}
+		#}
 	}
 }
 

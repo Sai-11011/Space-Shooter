@@ -29,7 +29,7 @@ extends Control
 var ship_ids :Array
 var current_ship :String
 var no_of_ships:int
-
+var ship_index:int = 0
 func _ready() -> void:
 	ship_ids = unlocked_ships.keys()
 	current_ship = PlayerData.player_save.equipped_ship
@@ -79,21 +79,24 @@ func render_fire_rate():
 	max_level("fire_rate",fire_rate_upgrade,fire_rate_stat)
 
 func _on_left_pressed() -> void:
-	if current_ship == "0":
+	if ship_index == 0:
 		current_ship = ship_ids[no_of_ships-1]
+		ship_index = no_of_ships-1
 	else:
-		current_ship = str((int(current_ship)-1)%no_of_ships)
+		current_ship = ship_ids[(ship_index-1)%no_of_ships]
+		ship_index = (ship_index-1)%no_of_ships
 	render_ships()
 	render_equip_button()
 
 func _on_right_pressed() -> void:
-	if current_ship == ship_ids[no_of_ships-1]:
-		current_ship = "0"
+	if ship_index == no_of_ships-1:
+		current_ship = ship_ids[0]
+		ship_index = 0
 	else:
-		current_ship = str((int(current_ship)+1)%no_of_ships)
+		current_ship = ship_ids[(ship_index+1)%no_of_ships]
+		ship_index = (ship_index+1)%no_of_ships
 	render_ships()
 	render_equip_button()
-
 
 func _on_h_upgrade_button_pressed() -> void:
 	PlayerData.attempt_upgrade(current_ship,"health")
@@ -113,13 +116,11 @@ func _on_s_upgrade_button_pressed() -> void:
 	PlayerData.render_coins(coins_node)
 	max_level("speed",speed_upgrade,speed_stat)
 
-
 func _on_f_upgrade_button_pressed() -> void:
 	PlayerData.attempt_upgrade(current_ship,"fire_rate")
 	render_fire_rate()
 	PlayerData.render_coins(coins_node)
 	max_level("fire_rate",fire_rate_upgrade,fire_rate_stat)
-	
 
 func render_equip_button():
 	if PlayerData.player_save.equipped_ship == current_ship :
@@ -144,4 +145,3 @@ func max_level(stat,upgrade_button,stat_text)->void:
 		upgrade_button.disabled =false
 		upgrade_button.icon = load(Global.coin_sprite)
 		stat_text.text = str(current_stat)+" -> "+ str(current_stat+all_ship_data[current_ship][stat]["growth"])
-		

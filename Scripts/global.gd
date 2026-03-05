@@ -108,6 +108,7 @@ const SHIP_TEMPLATES := {
 	},
 	"1": {
 		"name": "THE PULSAR",
+		"coins":500,
 		"sprite": "uid://bgv6cuicbe5nh",
 		"description": "A direct, high-tech upgrade over the Nomad. It offers heavier armor plating and experimental twin-core thrusters for an equilibrium of speed and offensive capability.",
 		"speed": {
@@ -141,6 +142,7 @@ const SHIP_TEMPLATES := {
 	},
 	"2": {
 		"name": "THE VECTOR",
+		"coins":1000,
 		"sprite": "uid://dxs0hug3rioq7",
 		"description": "Prioritizes maximum thrust and agility over structural integrity. Its aerodynamic chassis allows for lightning-fast evasive maneuvers.",
 		"speed": {
@@ -174,6 +176,7 @@ const SHIP_TEMPLATES := {
 	},
 	"3": {
 		"name": "THE JUGGERNAUT",
+		"coins":3000,
 		"sprite": "uid://d2i4gru0c5lw7",
 		"description": "A hulking fortress of reinforced steel and sheer firepower. It suffers heavily in mobility but makes up for it with a massive health pool and devastating heavy cannons.",
 		"speed": {
@@ -205,6 +208,10 @@ const SHIP_TEMPLATES := {
 			"cost_mult": 1.5
 		}
 	}
+}
+
+var SHOP := { 
+	"ship_ids" : ["1","2","3"]
 }
 
 func slam_effect(slam):
