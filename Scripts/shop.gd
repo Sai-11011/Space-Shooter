@@ -26,14 +26,12 @@ func render_spaceships():
 	item_name.text = all_items[current_item]["name"]
 	item_description.text = all_items[current_item]["description"]
 	current_price = all_items[current_item]["coins"]
-	for i in PlayerData.player_save["unlocked_ships"].keys() :
-		if i == current_item:
-			buy_button.disabled = true
-			buy_button.text = "BOUGHT"
-			return
-		else :
-			buy_button.disabled = false
-			buy_button.text = str(current_price)
+	if PlayerData.player_save["unlocked_ships"].has(current_item):
+		buy_button.disabled = true
+		buy_button.text = "BOUGHT"
+	else :
+		buy_button.disabled = false
+		buy_button.text = str(current_price)
 
 func _on_ship_button_1_pressed() -> void:
 	current_item = "1"
@@ -48,7 +46,7 @@ func _on_ship_button_3_pressed() -> void:
 	render_spaceships()
 
 func _on_buy_button_pressed() -> void:
-	if PlayerData.player_save["coins"] > all_items[current_item]["coins"]:
+	if PlayerData.player_save["coins"] >= all_items[current_item]["coins"]:
 		buy()
 
 func buy():

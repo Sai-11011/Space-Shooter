@@ -55,6 +55,7 @@ func _physics_process(_delta: float) -> void:
 
 func shoot() -> void:
 	var bullet = bullet_scene.instantiate()
+	bullet.damage = damage
 	bullet.global_position = bullet_start_position.global_position
 	bullet.global_rotation = global_rotation
 	get_tree().root.get_node("Main/BulletContainer").add_child(bullet)

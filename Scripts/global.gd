@@ -38,35 +38,35 @@ const WAVES_DATA :={
 const ENEMY_DATA := {
 	"asteroid":{
 		"normal":{
-			"health":0.5,
+			"health":5.0,
 			"score":1.0,
-			"damage":0.5,
+			"damage":3.0,
 			"speed":100
 		},
 		"elite":{
-			"health":1.5,
-			"score":1.5,
-			"damage":1.0,
+			"health":15.0,
+			"score":2.0,
+			"damage":6.0,
 			"speed":150
 		}
 	},#scene not created yet after creating i will add them in waves accordingly
 	"swarmers":{
 		"normal":{
-			"health":1,
-			"score":3,
-			"damage":1,
+			"health":10.0,
+			"score":2,
+			"damage":8.0,
 			"speed":100
 		},
 		"elite":{
-			"health":1,
+			"health":15.0,
 			"score":3,
-			"damage":1,
+			"damage":10.0,
 			"speed":100
 		},
 		"boss":{
-			"health":1,
-			"score":3,
-			"damage":1,
+			"health":25.0,
+			"score":5,
+			"damage":15.0,
 			"speed":100
 		}
 	},
@@ -79,28 +79,24 @@ const SHIP_TEMPLATES := {
 		"description": "A reliable, mass-produced chassis. It doesn't excel in any one category, but its perfectly balanced core makes it a highly dependable vessel.",
 		"speed": {
 			"start": 300,
-			"max": 500,
 			"growth": 20,
 			"base_cost": 50,
 			"cost_mult": 1.5
 		},
 		"health": {
-			"start": 3.0,
-			"max": 8.0,
-			"growth": 0.5,
+			"start": 30.0,
+			"growth": 5.0,
 			"base_cost": 100,
 			"cost_mult": 1.5
 		},
 		"damage": {
-			"start": 1.0,
-			"max": 6.0,
-			"growth": 0.5,
+			"start": 10.0,
+			"growth": 5.0,
 			"base_cost": 150,
 			"cost_mult": 1.8
 		},
 		"fire_rate": {
 			"start": 0.5,
-			"max": 0.15,
 			"growth": -0.035,
 			"base_cost": 150,
 			"cost_mult": 1.8
@@ -113,28 +109,24 @@ const SHIP_TEMPLATES := {
 		"description": "A direct, high-tech upgrade over the Nomad. It offers heavier armor plating and experimental twin-core thrusters for an equilibrium of speed and offensive capability.",
 		"speed": {
 			"start": 350,
-			"max": 550,
 			"growth": 20,
 			"base_cost": 75,
 			"cost_mult": 1.6
 		},
 		"health": {
-			"start": 4.0,
-			"max": 9.0,
-			"growth": 0.5,
+			"start": 40.0,
+			"growth": 5.0,
 			"base_cost": 120,
 			"cost_mult": 1.6
 		},
 		"damage": {
-			"start": 1.5,
-			"max": 7.0,
-			"growth": 0.5,
+			"start": 15.0,
+			"growth": 5.0,
 			"base_cost": 180,
 			"cost_mult": 1.9
 		},
 		"fire_rate": {
 			"start": 0.45,
-			"max": 0.10,
 			"growth": -0.035,
 			"base_cost": 180,
 			"cost_mult": 1.9
@@ -147,28 +139,24 @@ const SHIP_TEMPLATES := {
 		"description": "Prioritizes maximum thrust and agility over structural integrity. Its aerodynamic chassis allows for lightning-fast evasive maneuvers.",
 		"speed": {
 			"start": 400,
-			"max": 700,
 			"growth": 30,
 			"base_cost": 100,
 			"cost_mult": 1.7
 		},
 		"health": {
-			"start": 2.0,
-			"max": 5.0,
-			"growth": 0.3,
+			"start": 20.0,
+			"growth": 3.0,
 			"base_cost": 80,
 			"cost_mult": 1.4
 		},
 		"damage": {
-			"start": 1.0,
-			"max": 5.0,
-			"growth": 0.4,
+			"start": 12.0,
+			"growth": 4.0,
 			"base_cost": 150,
 			"cost_mult": 1.8
 		},
 		"fire_rate": {
 			"start": 0.35,
-			"max": 0.08,
 			"growth": -0.027,
 			"base_cost": 200,
 			"cost_mult": 2.0
@@ -181,31 +169,27 @@ const SHIP_TEMPLATES := {
 		"description": "A hulking fortress of reinforced steel and sheer firepower. It suffers heavily in mobility but makes up for it with a massive health pool and devastating heavy cannons.",
 		"speed": {
 			"start": 200,
-			"max": 350,
 			"growth": 15,
 			"base_cost": 50,
 			"cost_mult": 1.4
 		},
 		"health": {
-			"start": 6.0,
-			"max": 15.0,
-			"growth": 1.0,
+			"start": 60.0,
+			"growth": 10.0,
 			"base_cost": 200,
 			"cost_mult": 2.0
 		},
 		"damage": {
-			"start": 3.0,
-			"max": 10.0,
-			"growth": 0.7,
+			"start": 30.0,
+			"growth": 7.0,
 			"base_cost": 250,
-			"cost_mult": 2.2
+			"cost_mult": 2.1
 		},
 		"fire_rate": {
-			"start": 0.7,
-			"max": 0.3,
+			"start": 0.6,
 			"growth": -0.04,
 			"base_cost": 120,
-			"cost_mult": 1.5
+			"cost_mult": 1.6
 		}
 	}
 }

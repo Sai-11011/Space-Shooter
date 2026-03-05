@@ -16,7 +16,7 @@ var center_hotspot = Vector2(16, 16)
 # ALL NODES
 
 #UI hud
-@onready var hearts_node := $UI/GameUI/MarginContainerTop/Hearts/Label
+@onready var health_bar := $UI/GameUI/MarginContainerTop/HealthBar
 @onready var score_node := $UI/GameUI/MarginContainerTop/Score/Label
 @onready var waves_node := $UI/GameUI/MarginContainerTop/Waves/Label
 #Timers
@@ -41,9 +41,10 @@ var wave_init : bool = false
 var count : int = 5
 
 func _ready() -> void:
-	update_hearts(player_node.health)
+	health_bar.max_value = player_node.max_health
+	health_bar.value = player_node.health
 	play()
-	player_node.health_change.connect(update_hearts)
+	player_node.health_change.connect(update_health_bar)
 	player_node.player_died.connect(_on_player_died)
 	
 
@@ -100,10 +101,10 @@ func spawn_enemy(enemy):
 		update_enemies_list()
 
 # UI RELATED
-func update_hearts(hearts:int)-> void:
-	if hearts_node == null:
+func update_health_bar(health:float)-> void:
+	if health_bar == null:
 		return
-	hearts_node.text = "X "+str(hearts)
+	health_bar.value =  player_node.health
 
 func score_increase(s):
 	score += s

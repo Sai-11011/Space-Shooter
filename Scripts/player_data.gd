@@ -15,7 +15,7 @@ var settings: Dictionary = {
 
 # The Save File: Only stores currency, equipped items, and integer levels.
 var player_save := {
-	"coins": 300000,
+	"coins": 999999,
 	"equipped_ship": "0",
 	"unlocked_ships":{
 		"0": {

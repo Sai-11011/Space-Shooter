@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://jcm4tb0r17k8" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="2_6bp64"]
-[ext_resource type="Texture2D" uid="uid://r58ybsu8lo7k" path="res://Assets/Extras/Heart-1.png.png" id="3_8gbba"]
 [ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="4_jjvhh"]
 [ext_resource type="FontFile" uid="uid://je3eoyhvahdc" path="res://Assets/Fonts/ShareTechMono-Regular.ttf" id="4_kry3j"]
 [ext_resource type="FontFile" uid="uid://c4ulioxj6mf7b" path="res://Assets/Fonts/Orbitron-VariableFont_wght.ttf" id="5_21xkr"]
@@ -17,6 +16,14 @@ size = Vector2(10, 720)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(10, 720)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynf5e"]
+bg_color = Color(0.5924496, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bp64"]
 bg_color = Color(0.03137255, 0.019607844, 0.105882354, 1)
@@ -175,20 +182,6 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 630
 
-[node name="Hearts" type="HBoxContainer" parent="UI/GameUI/MarginContainerTop" unique_id=346903930]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/GameUI/MarginContainerTop/Hearts" unique_id=1737187583]
-layout_mode = 2
-texture = ExtResource("3_8gbba")
-
-[node name="Label" type="Label" parent="UI/GameUI/MarginContainerTop/Hearts" unique_id=1788194034]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 30
-text = "X 3"
-uppercase = true
-
 [node name="Score" type="HBoxContainer" parent="UI/GameUI/MarginContainerTop" unique_id=571924319]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -208,6 +201,15 @@ size_flags_horizontal = 8
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Wave = 1"
+
+[node name="HealthBar" type="ProgressBar" parent="UI/GameUI/MarginContainerTop" unique_id=1984343612]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_ynf5e")
+step = 0.1
+show_percentage = false
 
 [node name="MarginContainerBottom" type="MarginContainer" parent="UI/GameUI" unique_id=595079174]
 layout_mode = 1
