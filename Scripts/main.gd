@@ -25,8 +25,10 @@ var center_hotspot = Vector2(16, 16)
 @onready var countdown_timer_node := $Timers/CountdownTimer
 @onready var countdown := $UI/GameUI/MarginContainerBottom/CountDown/seconds
 @onready var countdown_node := $UI/GameUI/MarginContainerBottom/CountDown
+@onready var freeze_timer := $Timers/FreezeTimer
 #UI GameOver
 @onready var player_node := $Player
+@onready var camera := $Camera2D
 @onready var enemies_list_node := $UI/PauseUI/MainSplit/RightTacticalPanel/TacticalVBox/EnemiesList
 @onready var game_over_score := $UI/GameOverUI/CenterLayout/MainVBox/StatHBox/ScoreLabel
 @onready var game_over_wave := $UI/GameOverUI/CenterLayout/MainVBox/StatHBox/WaveLabel
@@ -39,6 +41,8 @@ var current_enemies : Dictionary
 var enemies_list : Array
 var wave_init : bool = false
 var count : int = 5
+var special_enemies : Dictionary
+var spawning_specials : bool = false
 
 func _ready() -> void:
 	health_bar.max_value = player_node.max_health
@@ -67,44 +71,95 @@ func select_position() -> Vector2 :
 
 func prepare_wave_data():
 	var wave_key = str(current_wave)
-	waves_node.text = "Wave = "+wave_key
+	waves_node.text = "Wave = " + wave_key
+	
+	# Reset states for the new wave
+	current_enemies.clear()
+	special_enemies.clear()
+	enemies_list.clear()
+	spawning_specials = false
 	
 	if wave_data.has(wave_key) and current_wave <= max_waves:
-		current_enemies = wave_data[wave_key]["enemies"].duplicate()
-		enemies_list = current_enemies.keys()
+		var wave_info = wave_data[wave_key]
+		
+		# 1. Parse standard enemies
+		if wave_info.has("enemies"):
+			for enemy_type in wave_info["enemies"]:
+				for variant in wave_info["enemies"][enemy_type]:
+					var flat_key = enemy_type + ":" + variant
+					current_enemies[flat_key] = wave_info["enemies"][enemy_type][variant]
+					enemies_list.append(flat_key)
+		
+		# 2. Parse special phase enemies (store them for later)
+		if wave_info.has("special"):
+			for enemy_type in wave_info["special"]:
+				for variant in wave_info["special"][enemy_type]:
+					var flat_key = enemy_type + ":" + variant
+					special_enemies[flat_key] = wave_info["special"][enemy_type][variant]
+		
 		update_enemies_list()
 		select_enemies_to_spawn()
 
 func select_enemies_to_spawn():
 	if enemies_list.is_empty():
-		if current_wave < max_waves:
-			await timer_updates()
-			current_wave += 1
-			wave_init = false
-		return
-	var enemy = enemies_list.pick_random()
-	if current_enemies[enemy] <= 0:
-		enemies_list.erase(enemy)
+		# Check if we have special enemies waiting to spawn
+		if not spawning_specials and not special_enemies.is_empty():
+			spawning_specials = true
+			current_enemies = special_enemies.duplicate()
+			enemies_list = current_enemies.keys()
+			update_enemies_list()
+		else:
+			# Entire wave (normal + special) is completely finished
+			if current_wave < max_waves:
+				await timer_updates()
+				current_wave += 1
+				wave_init = false
+			return
+			
+	if enemies_list.is_empty(): return # Safety check
+
+	var enemy_key = enemies_list.pick_random()
+	if current_enemies[enemy_key] <= 0:
+		enemies_list.erase(enemy_key)
 		select_enemies_to_spawn()
 	else:
-		current_enemies[enemy] -= 1
-		spawn_enemy(enemy)
+		current_enemies[enemy_key] -= 1
+		spawn_enemy(enemy_key)
 
-func spawn_enemy(enemy):
-	if Global.SCENES.has(enemy):
-		var scene_uid: String =Global.SCENES[enemy]
+func spawn_enemy(enemy_key: String):
+	# Split our flattened string back into pieces (e.g., "asteroids:elite")
+	var parts = enemy_key.split(":")
+	print(parts)
+	var enemy_type = parts[0]
+	var variant = parts[1]
+	
+	if Global.SCENES.has(enemy_type):
+		var scene_uid: String = Global.SCENES[enemy_type]
 		var enemy_scene: PackedScene = load(scene_uid)
-		var enemy_instance := enemy_scene.instantiate()
+		var enemy_instance = enemy_scene.instantiate()
+		
+		# Inject the stats and variant type BEFORE adding to the tree
+		if enemy_instance.has_method("setup"):
+			enemy_instance.setup(enemy_type, variant)
+			
 		enemy_instance.position = select_position()
 		enemy_instance.look_at(player_node.global_position)
 		add_child(enemy_instance)
 		update_enemies_list()
-
 # UI RELATED
 func update_health_bar(health:float)-> void:
+	camera.apply_shake(10.0)
+	get_tree().paused = true
+	freeze_timer.start()
+	await freeze_timer.timeout
+	
+	# Only unpause the game if the player is still alive!
+	if health > 0:
+		get_tree().paused = false
+		
 	if health_bar == null:
 		return
-	health_bar.value =  player_node.health
+	health_bar.value = player_node.health
 
 func score_increase(s):
 	score += s

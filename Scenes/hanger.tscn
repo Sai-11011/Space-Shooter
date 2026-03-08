@@ -84,7 +84,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 210
+theme_override_constants/separation = 180
 
 [node name="Title" type="Label" parent="MarginContainer/MainVBox/TopHBox" unique_id=1030172045]
 custom_minimum_size = Vector2(800, 0)

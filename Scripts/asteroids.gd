@@ -2,12 +2,23 @@ extends Area2D
 
 @onready var asteroid_sprite = $Sprite2D
 @onready var debries_scene:= load(Global.SCENES.debries)
+var speed : float
+var health : float
+var score : float
+var damage : float
 
-const data := Global.ENEMY_DATA.asteroid.normal
-var speed := data.speed
-var health := data.health
-var score := data.score
-var damage := data.damage
+# Call this from main.gd right after instantiate()
+func setup(enemy_type: String, variant: String) -> void:
+	var data = Global.ENEMY_DATA[enemy_type][variant]
+	speed = data.speed
+	health = data.health
+	score = data.score
+	damage = data.damage
+	
+	if variant == "elite":
+		# Scaling the root node automatically scales both the sprite AND the collision shape!
+		scale = Vector2(1.5, 1.5) 
+		modulate = Color(1.0, 0.5, 0.5) # Optional: Tint it slightly red so players recognize the elite
 
 func _ready() -> void:
 	asteroid_sprite.rotation_degrees = randi_range(0,360)

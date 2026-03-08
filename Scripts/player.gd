@@ -21,6 +21,34 @@ var fire_rate : float
 var max_health : float
 var sprite : String
 
+@onready var engine_particles := $CPUParticles2D # Drag your particle node here
+
+func _physics_process(_delta: float) -> void:
+	process_movement()
+	look_at(get_global_mouse_position())
+	move_and_slide()
+	
+	# --- SMART ENGINE LOGIC ---
+	if velocity.length() > 0:
+		# transform.x is the direction the front of your ship is pointing
+		# We compare it against the direction you are actually moving
+		var forward_movement = transform.x.dot(velocity.normalized())
+		
+		# If the math returns > 0, you are generally moving forward
+		if forward_movement > 0.2:
+			engine_particles.emitting = true
+		else:
+			# Flying backwards or sideways! Turn off the main engine.
+			engine_particles.emitting = false
+	else:
+		# Standing still
+		engine_particles.emitting = false
+	# --------------------------
+	
+	if Input.is_action_pressed("shoot") and bullet_timer.is_stopped() :
+		shoot()
+		bullet_timer.start()
+
 func _ready() -> void:
 	# 1. Load the Sprite
 	sprite = ship_data.sprite
@@ -45,13 +73,6 @@ func process_movement() -> void :
 	var direction := Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
 	
-func _physics_process(_delta: float) -> void:
-	process_movement()
-	look_at(get_global_mouse_position())
-	move_and_slide()
-	if Input.is_action_pressed("shoot") and bullet_timer.is_stopped() :
-		shoot()
-		bullet_timer.start()
 
 func shoot() -> void:
 	var bullet = bullet_scene.instantiate()

@@ -40,7 +40,7 @@ theme_override_constants/margin_bottom = 30
 [node name="TopHBox" type="HBoxContainer" parent="MarginContainer" unique_id=1534433986]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 180
+theme_override_constants/separation = 160
 
 [node name="Title" type="Label" parent="MarginContainer/TopHBox" unique_id=366128988]
 layout_mode = 2

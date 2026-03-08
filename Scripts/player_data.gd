@@ -15,7 +15,7 @@ var settings: Dictionary = {
 
 # The Save File: Only stores currency, equipped items, and integer levels.
 var player_save := {
-	"coins": 999999,
+	"coins": 1360000,
 	"equipped_ship": "0",
 	"unlocked_ships":{
 		"0": {
@@ -130,8 +130,19 @@ func attempt_upgrade(ship_id: String, stat_name: String) -> bool:
 		
 
 func render_coins(coins_node) -> void:
-	coins_node.text = str(player_save.coins)
-	
+	coins_node.text = format_coins(player_save.coins)
+
+func format_coins(amount: int) -> String:
+	if amount >= 1_000_000:
+		# Format to 1 decimal place, then remove ".0" if it's a clean number
+		var formatted = "%.1f" % (amount / 1_000_000.0)
+		return formatted.trim_suffix(".0") + "M"
+	elif amount >= 1_000:
+		var formatted = "%.1f" % (amount / 1_000.0)
+		return formatted.trim_suffix(".0") + "K"
+	else:
+		return str(amount)
+
 func disable_button(button_node) -> void:
 	button_node.disabled = true
 	button_node.focus_mode = Control.FOCUS_NONE

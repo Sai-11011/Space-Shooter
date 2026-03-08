@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://mr0m4apc7yrv"]
+
+[ext_resource type="Script" uid="uid://bp6q6bum0ind0" path="res://Scripts/swamers.gd" id="1_vsvx8"]
+[ext_resource type="Texture2D" uid="uid://b2pyk4o812wty" path="res://Assets/Enemies/Swamers-2.png" id="3_jcgua"]
+[ext_resource type="Texture2D" uid="uid://45poew1w6b2g" path="res://Assets/Extras/Cursor/Cursor.png" id="3_phgdq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vsvx8"]
+radius = 46.0
+
+[sub_resource type="Curve" id="Curve_jcgua"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(0.108108096, -360), 0.0, 0.0, 0, 0, Vector2(0.27477476, 360), 0.0, 0.0, 0, 0, Vector2(0.37837833, -327.64044), 0.0, 0.0, 0, 0, Vector2(0.48198193, 319.5506), 0.0, 0.0, 0, 0, Vector2(0.63513505, -360), 0.0, 0.0, 0, 0, Vector2(0.73423415, 327.64047), 0.0, 0.0, 0, 0, Vector2(0.99549544, -360), 0.0, 0.0, 0, 0]
+point_count = 8
+
+[sub_resource type="Curve" id="Curve_phgdq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Swamers" type="Area2D" unique_id=22307620 groups=["enemy"]]
+collision_layer = 32
+collision_mask = 52
+script = ExtResource("1_vsvx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1730884764]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_vsvx8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1687359444]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=232934508]
+self_modulate = Color(0, 1, 1, 1)
+amount = 30
+texture = ExtResource("3_phgdq")
+lifetime = 0.5
+emission_shape = 4
+emission_points = PackedVector2Array(-10, -10, -10, 10)
+emission_colors = PackedColorArray()
+direction = Vector2(-1, 0)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angular_velocity_curve = SubResource("Curve_jcgua")
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_phgdq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1523298772]
+position = Vector2(0, -2)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_jcgua")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

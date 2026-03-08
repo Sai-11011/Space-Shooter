@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_WAVES := 3
+const MAX_WAVES := 5
 var instant_restart := false
 var coin_sprite := "uid://x6norgv5bcn4"
 
@@ -14,60 +14,113 @@ const SCENES := {
 	"player" : "uid://wps0hpecyxnr",
 	"start_ui":"uid://bfhhy2axnjpom",
 	"shop":"uid://dgytnrptoqh6y",
-	"options":"uid://c630bxhkysr62"
+	"options":"uid://c630bxhkysr62",
+	"swamers":"uid://mr0m4apc7yrv"
 }
 
-const WAVES_DATA :={
+const WAVES_DATA :={#i am using these for testing only
 	"1" : {
 		"enemies":{
-			"asteroids" : 15
+			"asteroids" : {
+				"normal":1
+			},
 		},
+		"special":{
+			"swamers":{
+				"normal":1,
+				"boss":1,
+				"elite":1
+			}
+		}
 	},
 	"2":{
 		"enemies":{
-			"asteroids" : 20
+			"asteroids" : {
+				"normal":5
+			},
 		},
+		"special":{
+			"swamers":{
+				"elite":3
+			}
+		}
 	},
 	"3":{
 		"enemies":{
-			"asteroids": 30
+			"asteroids": {
+				"normal" : 5,
+			},
+		},
+		"special":{
+			"swamers":{
+				"boss":1
+			},
+			"asteroids": {
+				"elite":1
+			}
+		}
+	},
+	"4":{
+		"enemies":{
+			"asteroids":{
+				"normal" : 25,
+				"elite":5
+			}
+		}
+	},
+	"5":{
+		"enemies":{
+			"asteroids":{
+				"normal" : 25,
+				"elite":5
+			}
+		},
+		"special":{
+			"swamers":{
+				"elite":1
+			}
 		}
 	}
 }
 
 const ENEMY_DATA := {
-	"asteroid":{
+	"asteroids":{
 		"normal":{
+			"sprite":"uid://clo1hb3w8ek3u",
 			"health":5.0,
 			"score":1.0,
 			"damage":3.0,
 			"speed":100
 		},
 		"elite":{
+			"sprite":"uid://b3usk7aefnw8c",
 			"health":15.0,
 			"score":2.0,
 			"damage":6.0,
-			"speed":150
+			"speed":80
 		}
 	},#scene not created yet after creating i will add them in waves accordingly
-	"swarmers":{
+	"swamers":{
 		"normal":{
+			"sprite":"uid://bp1273m0mthun",
 			"health":10.0,
 			"score":2,
 			"damage":8.0,
 			"speed":100
 		},
 		"elite":{
-			"health":15.0,
+			"sprite":"uid://b2pyk4o812wty",
+			"health":10.0,
 			"score":3,
 			"damage":10.0,
-			"speed":100
+			"speed":130
 		},
 		"boss":{
+			"sprite":"uid://ce1nw71c7mmmo",
 			"health":25.0,
 			"score":5,
 			"damage":15.0,
-			"speed":100
+			"speed":80
 		}
 	},
 }

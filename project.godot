@@ -35,6 +35,7 @@ mouse_cursor/custom_image="uid://45poew1w6b2g"
 
 bullet=""
 player=""
+enemy=""
 
 [gui]
 
@@ -88,7 +89,7 @@ start={
 2d_physics/layer_1="WorldBoundaries"
 2d_physics/layer_3="Bullet"
 2d_physics/layer_5="Player"
-2d_physics/layer_6="Asteroids"
+2d_physics/layer_6="Enemy"
 
 [physics]
 

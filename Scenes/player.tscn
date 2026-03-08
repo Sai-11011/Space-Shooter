@@ -1,10 +1,40 @@
 [gd_scene format=3 uid="uid://wps0hpecyxnr"]
 
 [ext_resource type="Script" uid="uid://bqmvg6f4uvrga" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://45poew1w6b2g" path="res://Assets/Extras/Cursor/Cursor.png" id="2_cvnsp"]
+
+[sub_resource type="Curve" id="Curve_6t5aa"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(0.108108096, -360), 0.0, 0.0, 0, 0, Vector2(0.27477476, 360), 0.0, 0.0, 0, 0, Vector2(0.37837833, -327.64044), 0.0, 0.0, 0, 0, Vector2(0.48198193, 319.5506), 0.0, 0.0, 0, 0, Vector2(0.63513505, -360), 0.0, 0.0, 0, 0, Vector2(0.73423415, 327.64047), 0.0, 0.0, 0, 0, Vector2(0.99549544, -360), 0.0, 0.0, 0, 0]
+point_count = 8
+
+[sub_resource type="Curve" id="Curve_cvnsp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.24774775, 0.49438208), 0.0, 0.0, 0, 0, Vector2(0.7702703, 0.50561804), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [node name="Player" type="CharacterBody2D" unique_id=466430305 groups=["player"]]
 z_index = 1
 script = ExtResource("1_cvnsp")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1762692767]
+self_modulate = Color(0, 1, 1, 1)
+amount = 300
+texture = ExtResource("2_cvnsp")
+lifetime = 0.5
+emission_shape = 4
+emission_points = PackedVector2Array(-10, -10, -10, 10)
+emission_colors = PackedColorArray()
+direction = Vector2(-1, 0)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+angular_velocity_curve = SubResource("Curve_6t5aa")
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_cvnsp")
 
 [node name="Timers" type="Node" parent="." unique_id=783165018]
 
