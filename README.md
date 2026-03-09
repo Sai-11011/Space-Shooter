@@ -1,4 +1,4 @@
-Here's a short, bulleted changelog for the code changes:
+Here is a short, bulleted changelog for the code changes:
 
 * **Feature**:
   * Implemented new login system with two-factor authentication
