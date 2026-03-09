@@ -1,9 +1,11 @@
-* **Feature**: 
+* **Feature**:
   * Implemented a new authentication system using OAuth 2.0
   * Added support for dark mode in the application
-* **Bug Fix**: 
+  * Replaced previous player movement system with no new equivalent
+* **Bug Fix**:
   * Fixed an issue with the search function that caused it to return incorrect results
   * Resolved a bug that prevented users from uploading files larger than 1MB
-* **Chore**: 
+* **Chore**:
   * Updated dependencies to the latest versions
-  * Refactored the codebase to improve performance and readability
+  * Refactored the codebase to improve performance and readability 
+  * Removed obsolete documentation regarding the old player movement system
