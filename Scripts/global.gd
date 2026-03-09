@@ -22,7 +22,7 @@ const WAVES_DATA :={
 	"1" : {
 		"enemies":{
 			"asteroids" : {
-				"normal":10
+				"normal":5
 			}
 		},
 	},
@@ -41,24 +41,25 @@ const WAVES_DATA :={
 		},
 		"special":{
 			"swamers": {
-				"normal":5
+				"normal":10
 			}
 		}
 	},
 	"4":{
 		"enemies":{
 			"asteroids":{
-				"normal" : 25,
+				"normal" : 15,
 			},
 			"swamers":{
-				"elite":3
+				"elite":5
 			}
 		}
 	},
 	"5":{
 		"enemies":{
 			"swamers":{
-				"normal" : 25,
+				"normal" : 15,
+				"elite": 5
 			}
 		},
 		"special":{
