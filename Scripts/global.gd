@@ -18,43 +18,28 @@ const SCENES := {
 	"swamers":"uid://mr0m4apc7yrv"
 }
 
-const WAVES_DATA :={#i am using these for testing only
+const WAVES_DATA :={
 	"1" : {
 		"enemies":{
 			"asteroids" : {
-				"normal":1
-			},
-		},
-		"special":{
-			"swamers":{
-				"normal":1,
-				"boss":1,
-				"elite":1
+				"normal":10
 			}
-		}
+		},
 	},
 	"2":{
 		"enemies":{
 			"asteroids" : {
-				"normal":5
-			},
-		},
-		"special":{
-			"swamers":{
-				"elite":3
+				"normal":15
 			}
-		}
+		},
 	},
 	"3":{
 		"enemies":{
 			"asteroids": {
-				"normal" : 5,
-			},
+				"normal" : 25,
+			}
 		},
 		"special":{
-			"swamers":{
-				"boss":1
-			},
 			"asteroids": {
 				"elite":1
 			}
@@ -64,20 +49,21 @@ const WAVES_DATA :={#i am using these for testing only
 		"enemies":{
 			"asteroids":{
 				"normal" : 25,
-				"elite":5
+			},
+			"swamers":{
+				"elite":1
 			}
 		}
 	},
 	"5":{
 		"enemies":{
-			"asteroids":{
+			"swamers":{
 				"normal" : 25,
-				"elite":5
 			}
 		},
 		"special":{
 			"swamers":{
-				"elite":1
+				"Boss":1
 			}
 		}
 	}
