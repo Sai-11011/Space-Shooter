@@ -1,5 +1,3 @@
-Here is a short, bulleted changelog for the code changes, categorized by Feature, Bug Fix, or Chore:
-
 * **Feature**:
   * Introduced a new acceleration and friction system for player movement, allowing for smoother and more realistic movement.
   * Added a `delta` parameter to the `_physics_process` and `process_movement` functions to improve movement accuracy and responsiveness.
