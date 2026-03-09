@@ -238,6 +238,7 @@ var SHOP := {
 	"ship_ids" : ["1","2","3"]
 }
 
+# testing automation.
 func slam_effect(slam):
 	var tween = create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
