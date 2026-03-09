@@ -63,7 +63,7 @@ const WAVES_DATA :={
 		},
 		"special":{
 			"swamers":{
-				"Boss":1
+				"boss":1
 			}
 		}
 	}
