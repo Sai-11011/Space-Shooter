@@ -7,4 +7,4 @@ Here's a short, bulleted changelog for the code changes:
 * **Bug Fix**: 
   * None in this update 
 
-Note: Since there are no feature additions or bug fixes in this update, those sections are empty. The only change is a chore update to improve the README.md file.
+Note: This update is primarily focused on improving the readability of the README.md file, with no new features or bug fixes added.
