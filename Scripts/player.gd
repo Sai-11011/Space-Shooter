@@ -14,7 +14,9 @@ var invincible = false
 var flash_tween: Tween
 
 # Calculated Stats
-var speed : float
+var max_speed : float = 80.0
+var acceleration : float = 1000.0
+var friction : float = 200.0
 var health : float
 var damage : float
 var fire_rate : float
@@ -23,8 +25,8 @@ var sprite : String
 
 @onready var engine_particles := $CPUParticles2D # Drag your particle node here
 
-func _physics_process(_delta: float) -> void:
-	process_movement()
+func _physics_process(delta: float) -> void:
+	process_movement(delta)
 	look_at(get_global_mouse_position())
 	move_and_slide()
 	
@@ -55,7 +57,7 @@ func _ready() -> void:
 	player_sprite.texture = load(sprite)
 	
 	# 2. Calculate Actual Values: Base + (Growth * Level)
-	speed = ship_data.speed.stat
+	max_speed = ship_data.speed.stat
 	health = ship_data.health.stat
 	damage = ship_data.damage.stat
 	fire_rate = ship_data.fire_rate.stat
@@ -69,9 +71,13 @@ func _ready() -> void:
 # CURSORS
 var default_cursor = preload("uid://45poew1w6b2g")
 
-func process_movement() -> void :
+func process_movement(delta) -> void :
 	var direction := Input.get_vector("left", "right", "up", "down")
-	velocity = direction * speed
+	if direction != Vector2.ZERO:
+		velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+	
 	
 
 func shoot() -> void:
