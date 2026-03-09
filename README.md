@@ -9,6 +9,6 @@ Here's a short, bulleted changelog for the code changes:
 * **Chore**:
   * Updated dependencies to the latest versions
   * Refactored the codebase to improve performance and readability
-  * Removed obsolete documentation regarding the old player movement system 
+  * Removed obsolete documentation regarding the old player movement system
 
-Note: The replacement of the previous player movement system with no new equivalent is not explicitly categorized in the provided diff, but it seems to be a significant change that could potentially be considered a bug or a feature removal, depending on the context. It may be worth adding a separate note or issue to track this change.
+Note: The removal of the previous player movement system without a replacement may be considered a feature removal or a bug, and should be tracked separately for further review and resolution.
