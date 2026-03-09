@@ -1,5 +1,4 @@
 Here's a short, bulleted changelog for the code changes:
-
 * **Chore**: 
   * Updated README.md to use proper grammar and removed unnecessary changelog content
 * **Feature**: 
