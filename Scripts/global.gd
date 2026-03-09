@@ -36,12 +36,12 @@ const WAVES_DATA :={
 	"3":{
 		"enemies":{
 			"asteroids": {
-				"normal" : 25,
+				"normal" : 15,
 			}
 		},
 		"special":{
-			"asteroids": {
-				"elite":1
+			"swamers": {
+				"normal":5
 			}
 		}
 	},
@@ -51,7 +51,7 @@ const WAVES_DATA :={
 				"normal" : 25,
 			},
 			"swamers":{
-				"elite":1
+				"elite":3
 			}
 		}
 	},
