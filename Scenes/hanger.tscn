@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="1_bite6"]
 [ext_resource type="Script" uid="uid://evjfk7xmwrc5" path="res://Scripts/hanger.gd" id="1_vqebm"]
 [ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="2_sqnvc"]
-[ext_resource type="Texture2D" uid="uid://x6norgv5bcn4" path="res://Assets/Extras/Coins-32.png" id="3_bhajs"]
 [ext_resource type="Texture2D" uid="uid://cds08beni24ka" path="res://Assets/Extras/arrows/Left.png" id="4_g330h"]
+[ext_resource type="Texture2D" uid="uid://bm1el4hd612c1" path="res://Assets/Extras/CoinOrbs.png" id="4_yaibh"]
 [ext_resource type="Texture2D" uid="uid://cfxve66oknire" path="res://Assets/Extras/arrows/right.png" id="5_vqebm"]
 [ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="6_yaibh"]
 [ext_resource type="Theme" uid="uid://dvgu3htclnxq3" path="res://Themes/blue.tres" id="7_yaibh"]
@@ -102,7 +102,7 @@ size_flags_vertical = 4
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/MainVBox/TopHBox/CoinBox" unique_id=1089507397]
 layout_mode = 2
-texture = ExtResource("3_bhajs")
+texture = ExtResource("4_yaibh")
 expand_mode = 2
 stretch_mode = 3
 
@@ -220,7 +220,7 @@ layout_mode = 2
 theme = ExtResource("7_yaibh")
 theme_override_font_sizes/font_size = 36
 text = "0"
-icon = ExtResource("3_bhajs")
+icon = ExtResource("4_yaibh")
 
 [node name="DamageRow" type="HBoxContainer" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel" unique_id=1788585005]
 layout_mode = 2
@@ -245,7 +245,7 @@ layout_mode = 2
 theme = ExtResource("7_yaibh")
 theme_override_font_sizes/font_size = 36
 text = "0"
-icon = ExtResource("3_bhajs")
+icon = ExtResource("4_yaibh")
 
 [node name="SpeedRow" type="HBoxContainer" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel" unique_id=1953382489]
 layout_mode = 2
@@ -270,7 +270,7 @@ layout_mode = 2
 theme = ExtResource("7_yaibh")
 theme_override_font_sizes/font_size = 36
 text = "0"
-icon = ExtResource("3_bhajs")
+icon = ExtResource("4_yaibh")
 
 [node name="FireRateRow" type="HBoxContainer" parent="MarginContainer/MainVBox/CenterContainer/ContentSplit/Rightpanel" unique_id=1794752640]
 layout_mode = 2
@@ -299,7 +299,7 @@ focus_neighbor_bottom = NodePath("../../../../../BottomNav/EquipButton")
 theme = ExtResource("7_yaibh")
 theme_override_font_sizes/font_size = 36
 text = "0"
-icon = ExtResource("3_bhajs")
+icon = ExtResource("4_yaibh")
 
 [node name="BottomNav" type="HBoxContainer" parent="MarginContainer/MainVBox" unique_id=631982322]
 layout_mode = 2

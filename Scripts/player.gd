@@ -96,11 +96,13 @@ func invincibility():
 	flash_tween.tween_property(self,"modulate:a",0.3,0.155)
 	flash_tween.tween_property(self,"modulate:a",0.6,0.155)
 	set_collision_layer_value(5, false)
+	set_collision_layer_value(4, true)
 	invincibility_timer.start()
 	invincible = true
 
 func _on_invincibility_timer_timeout() -> void:
 	set_collision_layer_value(5, true)
+	set_collision_layer_value(4, false)
 	flash_tween.kill()
 	modulate = Color.WHITE
 	invincible = false

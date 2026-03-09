@@ -19,6 +19,7 @@ var center_hotspot = Vector2(16, 16)
 @onready var health_bar := $UI/GameUI/MarginContainerTop/HealthBar
 @onready var score_node := $UI/GameUI/MarginContainerTop/Score/Label
 @onready var waves_node := $UI/GameUI/MarginContainerTop/Waves/Label
+@onready var coins_node := $UI/PauseUI/MainSplit/RightTacticalPanel/CoinBox/Amount
 #Timers
 @onready var enemy_timer_node := $Timers/EnemyTimer
 @onready var next_wave_timer_node := $Timers/NextWave
@@ -195,6 +196,7 @@ func _on_player_died():
 
 func pause():
 	get_tree().paused = true
+	PlayerData.render_coins(coins_node)
 	pause_ui_node.visible = true
 	Input.set_custom_mouse_cursor(default_cursor)
 

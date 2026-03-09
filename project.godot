@@ -88,8 +88,10 @@ start={
 
 2d_physics/layer_1="WorldBoundaries"
 2d_physics/layer_3="Bullet"
+2d_physics/layer_4="PlayerInvencible"
 2d_physics/layer_5="Player"
 2d_physics/layer_6="Enemy"
+2d_physics/layer_8="Coins"
 
 [physics]
 

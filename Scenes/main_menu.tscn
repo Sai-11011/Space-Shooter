@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="1_1ehe0"]
 [ext_resource type="Script" uid="uid://cwex82bfym8ii" path="res://Scripts/main_menu.gd" id="1_n45e2"]
 [ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="2_ce3w2"]
-[ext_resource type="Texture2D" uid="uid://x6norgv5bcn4" path="res://Assets/Extras/Coins-32.png" id="3_n45e2"]
 [ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="4_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://bm1el4hd612c1" path="res://Assets/Extras/CoinOrbs.png" id="4_n45e2"]
 
 [node name="MainMenu" type="Control" unique_id=1816575638]
 process_mode = 3
@@ -56,7 +56,7 @@ size_flags_vertical = 4
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/TopHBox/CoinBox" unique_id=1272114997]
 layout_mode = 2
-texture = ExtResource("3_n45e2")
+texture = ExtResource("4_n45e2")
 expand_mode = 2
 stretch_mode = 3
 

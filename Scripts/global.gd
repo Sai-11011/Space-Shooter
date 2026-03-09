@@ -2,7 +2,7 @@ extends Node
 
 const MAX_WAVES := 5
 var instant_restart := false
-var coin_sprite := "uid://x6norgv5bcn4"
+var coin_sprite := "uid://bm1el4hd612c1"
 
 const SCENES := {
 	"asteroids" : "uid://be3g1my4xgjv3",
@@ -15,7 +15,8 @@ const SCENES := {
 	"start_ui":"uid://bfhhy2axnjpom",
 	"shop":"uid://dgytnrptoqh6y",
 	"options":"uid://c630bxhkysr62",
-	"swamers":"uid://mr0m4apc7yrv"
+	"swamers":"uid://mr0m4apc7yrv",
+	"coins":"uid://byvothgeu7cja"
 }
 
 const WAVES_DATA :={
@@ -73,6 +74,7 @@ const WAVES_DATA :={
 const ENEMY_DATA := {
 	"asteroids":{
 		"normal":{
+			"coins":5,
 			"sprite":"uid://clo1hb3w8ek3u",
 			"health":5.0,
 			"score":1.0,
@@ -80,6 +82,7 @@ const ENEMY_DATA := {
 			"speed":100
 		},
 		"elite":{
+			"coins":15,
 			"sprite":"uid://b3usk7aefnw8c",
 			"health":15.0,
 			"score":2.0,
@@ -89,6 +92,7 @@ const ENEMY_DATA := {
 	},#scene not created yet after creating i will add them in waves accordingly
 	"swamers":{
 		"normal":{
+			"coins":10,
 			"sprite":"uid://bp1273m0mthun",
 			"health":10.0,
 			"score":2,
@@ -96,6 +100,7 @@ const ENEMY_DATA := {
 			"speed":100
 		},
 		"elite":{
+			"coins":15,
 			"sprite":"uid://b2pyk4o812wty",
 			"health":10.0,
 			"score":3,
@@ -103,6 +108,7 @@ const ENEMY_DATA := {
 			"speed":130
 		},
 		"boss":{
+			"coins":35,
 			"sprite":"uid://ce1nw71c7mmmo",
 			"health":25.0,
 			"score":5,
@@ -238,7 +244,6 @@ var SHOP := {
 	"ship_ids" : ["1","2","3"]
 }
 
-# testing automation.
 func slam_effect(slam):
 	var tween = create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
@@ -246,3 +251,28 @@ func slam_effect(slam):
 	.set_trans(Tween.TRANS_BACK)\
 	.set_ease(Tween.EASE_OUT)\
 	.from(Vector2(3, 3))
+
+func follow_player_movement(follower: Area2D, target: Node2D, speed: float, delta: float, rotation_speed: float = 10.0, separation_force: float = 15.0) -> void:
+	if not is_instance_valid(target) or not is_instance_valid(follower):
+		return 
+		
+	# 1. Base direction toward target
+	var direction_to_target = (target.global_position - follower.global_position).normalized()
+	var separation = Vector2.ZERO
+	
+	# 2. Check for overlapping friends (using the enemy's collision area)
+	for area in follower.get_overlapping_areas():
+		if area.is_in_group("enemy") and area != follower:
+			var push_vector = follower.global_position - area.global_position
+			if push_vector.length() > 0: 
+				separation += push_vector.normalized() / push_vector.length()
+				
+	# 3. Combine directions
+	var final_direction = (direction_to_target + (separation * separation_force)).normalized()
+	
+	# 4. Smooth Rotation
+	var target_angle = final_direction.angle()
+	follower.rotation = lerp_angle(follower.rotation, target_angle, rotation_speed * delta)
+	
+	# 5. Move forward
+	follower.global_position += follower.transform.x * speed * delta

@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://je3eoyhvahdc" path="res://Assets/Fonts/ShareTechMono-Regular.ttf" id="4_kry3j"]
 [ext_resource type="FontFile" uid="uid://c4ulioxj6mf7b" path="res://Assets/Fonts/Orbitron-VariableFont_wght.ttf" id="5_21xkr"]
 [ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="6_344ge"]
+[ext_resource type="Texture2D" uid="uid://bm1el4hd612c1" path="res://Assets/Extras/CoinOrbs.png" id="8_ynf5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
 size = Vector2(1280, 10)
@@ -412,6 +413,25 @@ text = "Menu"
 [node name="RightTacticalPanel" type="PanelContainer" parent="UI/PauseUI/MainSplit" unique_id=13121143]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wsu2k")
+
+[node name="CoinBox" type="HBoxContainer" parent="UI/PauseUI/MainSplit/RightTacticalPanel" unique_id=905799904]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Icon" type="TextureRect" parent="UI/PauseUI/MainSplit/RightTacticalPanel/CoinBox" unique_id=1702446025]
+layout_mode = 2
+texture = ExtResource("8_ynf5e")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Amount" type="Label" parent="UI/PauseUI/MainSplit/RightTacticalPanel/CoinBox" unique_id=1710792063]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.27450982, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TacticalVBox" type="VBoxContainer" parent="UI/PauseUI/MainSplit/RightTacticalPanel" unique_id=1552129006]
 layout_mode = 2

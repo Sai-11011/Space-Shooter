@@ -29,6 +29,7 @@ func render_spaceships():
 	if PlayerData.player_save["unlocked_ships"].has(current_item):
 		buy_button.disabled = true
 		buy_button.text = "BOUGHT"
+		buy_button.icon = null
 	else :
 		buy_button.disabled = false
 		buy_button.text = str(current_price)

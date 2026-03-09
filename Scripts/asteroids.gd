@@ -1,12 +1,15 @@
 extends Area2D
 
 @onready var asteroid_sprite = $Sprite2D
+@onready var coin_scene = load(Global.SCENES.coins)
 @onready var debries_scene:= load(Global.SCENES.debries)
+var enemy_variant :String
 var speed : float
 var health : float
 var score : float
 var damage : float
-
+var coins :int
+@onready var player = get_tree().root.get_node("Main/Player")
 # Call this from main.gd right after instantiate()
 func setup(enemy_type: String, variant: String) -> void:
 	var data = Global.ENEMY_DATA[enemy_type][variant]
@@ -14,7 +17,8 @@ func setup(enemy_type: String, variant: String) -> void:
 	health = data.health
 	score = data.score
 	damage = data.damage
-	
+	enemy_variant = variant
+	coins = data.coins
 	if variant == "elite":
 		# Scaling the root node automatically scales both the sprite AND the collision shape!
 		scale = Vector2(1.5, 1.5) 
@@ -40,10 +44,20 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		area.queue_free()
 		health-= area.damage
-		if health<=0:
-			spawn_debries()
+		if health <= 0:
 			get_tree().root.get_node("Main").score_increase(score)
+			spawn_debries()
+			var coins_instance = coin_scene.instantiate()
+			coins_instance.global_position = global_position
+			coins_instance.coins_to_increase = coins
+			coins_instance.look_at(player.position)
+			if enemy_variant == "normal":
+				if randf()<0.75:
+					get_parent().call_deferred("add_child", coins_instance)
+			if enemy_variant == "elite" :
+				get_parent().call_deferred("add_child", coins_instance)
 			queue_free()
+		
 
 func spawn_debries():
 	var debries = debries_scene.instantiate()
