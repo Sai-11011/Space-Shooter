@@ -1,7 +1,5 @@
-Here's a short, bulleted changelog for the code changes:
-
 * **Chore**: 
-  * Improved the readability of the README.md file
+  * Improved the readability of the README.md file by updating its content to use proper grammar and removing unnecessary information
 * **Feature**: 
   * None in this update
 * **Bug Fix**: 
