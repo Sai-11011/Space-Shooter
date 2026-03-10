@@ -1,7 +1,3 @@
-* **Feature**: 
-  • No new features added in this update
-* **Bug Fix**: 
-  • Resolved issue with missing bug fixes in changelog
-* **Chore**: 
-  • Updated README.md to include a short, bulleted changelog for the code changes, replacing the previous changelog
-  • Removed unnecessary lines from the changelog
+* **Chore**: Removed unnecessary line from README.md file, simplifying the introduction section.
+* **Bug Fix**: No bug fixes were made in this update.
+* **Feature**: No new features were added in this update.
