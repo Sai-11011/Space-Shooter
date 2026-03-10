@@ -5,6 +5,7 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 @onready var current_wave = 1
 @onready var max_waves = Global.MAX_WAVES
+var final_wave_spawn_complete = false
 @onready var wave_data = Global.WAVES_DATA
 var tween : Tween
 
@@ -12,6 +13,7 @@ var tween : Tween
 var target_cursor = preload("uid://ccpme5g6t3g1u")
 var default_cursor = preload("uid://45poew1w6b2g")
 @onready var main_menu := load(Global.SCENES.main_menu)
+@onready var demo_end := load(Global.SCENES.demo_end)
 var center_hotspot = Vector2(16, 16)
 # ALL NODES
 
@@ -36,6 +38,7 @@ var center_hotspot = Vector2(16, 16)
 #UI visibles
 @onready var pause_ui_node := $UI/PauseUI
 @onready var gameover_ui_node := $UI/GameOverUI
+@onready var enemies_container :=$EnemiesContainer
 #CURRENT
 var score :int = 0
 var current_enemies : Dictionary
@@ -59,6 +62,10 @@ func _process(_delta: float) -> void:
 			_on_resume_button_pressed() # Unpause if already paused
 		else:
 			pause()
+	if final_wave_spawn_complete and enemies_container.get_child_count() == 0:
+		PlayerData.player_save.score = score
+		PlayerData.update_score()
+		get_tree().change_scene_to_packed(demo_end )
 
 #ENEMY LOGIC
 func select_position() -> Vector2 :
@@ -115,8 +122,9 @@ func select_enemies_to_spawn():
 				await timer_updates()
 				current_wave += 1
 				wave_init = false
-			return
-			
+			else:
+				final_wave_spawn_complete = true
+
 	if enemies_list.is_empty(): return # Safety check
 
 	var enemy_key = enemies_list.pick_random()
@@ -145,7 +153,7 @@ func spawn_enemy(enemy_key: String):
 			
 		enemy_instance.position = select_position()
 		enemy_instance.look_at(player_node.global_position)
-		add_child(enemy_instance)
+		enemies_container.add_child(enemy_instance)
 		update_enemies_list()
 # UI RELATED
 func update_health_bar(health:float)-> void:
@@ -215,6 +223,7 @@ func play():
 
 
 func _on_restart_pressed() -> void:
+	PlayerData.run_complete()
 	get_tree().paused = false
 	Global.instant_restart = true
 	get_tree().reload_current_scene()
@@ -232,7 +241,7 @@ func _on_enemy_timer_timeout() -> void:
 	else:
 		select_enemies_to_spawn()
 
-
 func _on_menu_button_pressed() -> void:
 	AudioManager.play_click()
+	PlayerData.run_complete()
 	get_tree().change_scene_to_packed(main_menu)

@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://je3eoyhvahdc" path="res://Assets/Fonts/ShareTechMono-Regular.ttf" id="4_kry3j"]
 [ext_resource type="FontFile" uid="uid://c4ulioxj6mf7b" path="res://Assets/Fonts/Orbitron-VariableFont_wght.ttf" id="5_21xkr"]
 [ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="6_344ge"]
+[ext_resource type="Theme" uid="uid://dvgu3htclnxq3" path="res://Themes/blue.tres" id="8_hptm8"]
 [ext_resource type="Texture2D" uid="uid://bm1el4hd612c1" path="res://Assets/Extras/CoinOrbs.png" id="8_ynf5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
@@ -156,7 +157,7 @@ process_mode = 3
 wait_time = 0.1
 one_shot = true
 
-[node name="EnemiesContainer" type="Node" parent="." unique_id=612218175]
+[node name="EnemiesContainer" type="Node" parent="." unique_id=612218175 groups=["enemy_containes"]]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1277085559]
 offset = Vector2(640, 360)
@@ -397,7 +398,7 @@ theme_override_constants/separation = 30
 [node name="ResumeButton" type="Button" parent="UI/PauseUI/MainSplit/LeftNav/MarginContainer/VBoxContainer" unique_id=837054758]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_constants/outline_size = 5
+theme = ExtResource("8_hptm8")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_fdnlq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_k12tt")

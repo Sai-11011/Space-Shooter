@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://b10aa3fnflrpj"]
+
+[ext_resource type="Script" uid="uid://pkadru6g2t6k" path="res://Scripts/demo_end.gd" id="1_dwr2f"]
+[ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="1_ls0md"]
+[ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="2_dwr2f"]
+[ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="3_bakid"]
+
+[node name="DemoEnd" type="Control" unique_id=170187400]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dwr2f")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1637090975]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ls0md")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1880387347]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1345374299]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1361695243]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_dwr2f")
+theme_override_font_sizes/font_size = 60
+text = "WAVE-5 CLEARED 
+DEMO COMPLETE"
+horizontal_alignment = 1
+
+[node name="MainContent" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=308128833]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainContent" unique_id=534751859]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Summary" type="Label" parent="MarginContainer/VBoxContainer/MainContent/VBoxContainer" unique_id=665402711]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dwr2f")
+theme_override_font_sizes/font_size = 48
+text = "Run Summary"
+horizontal_alignment = 1
+
+[node name="ScoreHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/VBoxContainer" unique_id=89210489]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MainContent/VBoxContainer/ScoreHBox" unique_id=2081809798]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Score : "
+
+[node name="KillsHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/VBoxContainer" unique_id=883977856]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MainContent/VBoxContainer/KillsHBox" unique_id=574021271]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Enemies killed : "
+
+[node name="OrbsHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainContent/VBoxContainer" unique_id=493179957]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MainContent/VBoxContainer/OrbsHBox" unique_id=549817057]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Orbs Collected : "
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=446075310]
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsHBox" unique_id=1703944943]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme = ExtResource("3_bakid")
+text = "Menu"
+
+[node name="EndlessButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsHBox" unique_id=733364239]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("3_bakid")
+text = "Endless Mode"
+
+[node name="WishlistButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsHBox" unique_id=164414503]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("3_bakid")
+text = "wishlist"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsHBox/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsHBox/EndlessButton" to="." method="_on_endless_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsHBox/WishlistButton" to="." method="_on_wishlist_button_pressed"]

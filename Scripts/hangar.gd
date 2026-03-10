@@ -58,25 +58,25 @@ func render_all_stats():
 func render_health():
 	var health = unlocked_ships[current_ship]["health"]
 	health_level.text = "Health :"+ str(health["level"])
-	health_upgrade.text = str(PlayerData.get_upgrade_cost(current_ship,"health"))
+	health_upgrade.text = PlayerData.get_upgrade_cost(current_ship,"health")[0]
 	max_level("health",health_upgrade,health_stat)
 
 func render_damage():
 	var damage = unlocked_ships[current_ship]["damage"]
 	damage_level.text = "Damage :"+ str(damage["level"])
-	damage_upgrade.text = str(PlayerData.get_upgrade_cost(current_ship,"damage"))
+	damage_upgrade.text = PlayerData.get_upgrade_cost(current_ship,"damage")[0]
 	max_level("damage",damage_upgrade,damage_stat)
 
 func render_speed():
 	var speed = unlocked_ships[current_ship]["speed"]
 	speed_level.text = "Speed :"+ str(speed["level"])
-	speed_upgrade.text = str(PlayerData.get_upgrade_cost(current_ship,"speed"))
+	speed_upgrade.text = PlayerData.get_upgrade_cost(current_ship,"speed")[0]
 	max_level("speed",speed_upgrade,speed_stat)
 
 func render_fire_rate():
 	var fire_rate = unlocked_ships[current_ship]["fire_rate"]
 	fire_rate_level.text = "Fire Rate :"+ str(fire_rate["level"])
-	fire_rate_upgrade.text = str(PlayerData.get_upgrade_cost(current_ship,"fire_rate"))
+	fire_rate_upgrade.text = PlayerData.get_upgrade_cost(current_ship,"fire_rate")[0]
 	max_level("fire_rate",fire_rate_upgrade,fire_rate_stat)
 
 func _on_left_pressed() -> void:

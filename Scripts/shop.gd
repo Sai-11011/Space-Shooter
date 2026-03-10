@@ -33,7 +33,7 @@ func render_spaceships():
 		buy_button.icon = null
 	else :
 		buy_button.disabled = false
-		buy_button.text = str(current_price)
+		buy_button.text = PlayerData.format_coins(current_price)
 
 func _on_ship_button_1_pressed() -> void:
 	current_item = "1"

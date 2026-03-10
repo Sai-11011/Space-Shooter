@@ -16,7 +16,10 @@ var settings: Dictionary = {
 # The Save File: Only stores currency, equipped items, and integer levels.
 var player_save := {
 	"coins": 1000,
+	"score":0,
+	"current_run_coins":0,
 	"equipped_ship": "0",
+	"enemies_destroyed":0,
 	"unlocked_ships":{
 		"0": {
 			"sprite": Global.SHIP_TEMPLATES["0"]["sprite"],
@@ -41,16 +44,16 @@ var player_save := {
 }
 
 
-func get_upgrade_cost(ship_id: String, stat_name: String) -> int:
+func get_upgrade_cost(ship_id: String, stat_name: String) -> Array:
 	var template = Global.SHIP_TEMPLATES[ship_id][stat_name]
 	var current_level = player_save.unlocked_ships[ship_id][stat_name]["level"]
 	
 	if current_level >= MAX_LEVEL:
-		return -1 
+		return ["-1",-1]
 		
 	var cost = template.base_cost * pow(template.cost_mult, current_level)
 	
-	return int(cost)
+	return [format_coins(cost),cost]
 
 func attempt_upgrade(ship_id: String, stat_name: String) -> bool:
 	var current_level = player_save.unlocked_ships[ship_id][stat_name]["level"]
@@ -61,8 +64,8 @@ func attempt_upgrade(ship_id: String, stat_name: String) -> bool:
 		
 	var cost = get_upgrade_cost(ship_id, stat_name)
 
-	if player_save.coins >= cost:
-		player_save.coins -= cost
+	if player_save.coins >= cost[1]:
+		player_save.coins -= cost[1]
 		player_save.unlocked_ships[ship_id][stat_name]["level"] += 1
 		AudioManager.play_upgrade()
 		print("Upgrade successful! Level is now: ", player_save.unlocked_ships[ship_id][stat_name]["level"])
@@ -75,7 +78,8 @@ func attempt_upgrade(ship_id: String, stat_name: String) -> bool:
 		
 
 func render_coins(coins_node) -> void:
-	coins_node.text = format_coins(player_save.coins)
+	coins_node.text = format_coins(player_save.coins+player_save.current_run_coins)
+
 
 func format_coins(amount: int) -> String:
 	if amount >= 1_000_000:
@@ -93,3 +97,11 @@ func disable_button(button_node) -> void:
 	button_node.focus_mode = Control.FOCUS_NONE
 	if button_node.has_focus():
 		button_node.release_focus()
+
+func run_complete():
+	player_save.coins += player_save.current_run_coins
+	player_save.current_run_coins = 0
+
+func update_score():
+	if player_save.score > high_score:
+		high_score = player_save.score

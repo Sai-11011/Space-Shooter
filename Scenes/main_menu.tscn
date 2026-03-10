@@ -93,7 +93,7 @@ focus_neighbor_right = NodePath("../../../ShopButton")
 focus_neighbor_bottom = NodePath("../OptionsButton")
 theme = ExtResource("4_ce3w2")
 theme_override_font_sizes/font_size = 40
-text = "Hanger"
+text = "Hangar"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=695734881]
 custom_minimum_size = Vector2(350, 70)

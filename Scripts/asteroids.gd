@@ -47,11 +47,13 @@ func _on_area_entered(area: Area2D) -> void:
 		if health <= 0:
 			get_tree().root.get_node("Main").score_increase(score)
 			spawn_debris()
+			PlayerData.player_save.enemies_destroyed += 1
 			if enemy_variant == "normal":
-				if randf()<0.75:
+				if randf()<0.25:
 					Global.spawn_coin(global_position,coins,get_parent())
 			if enemy_variant == "elite" :
-				Global.spawn_coin(global_position,coins,get_parent())
+				if randf()<0.5:
+					Global.spawn_coin(global_position,coins,get_parent())
 			queue_free()
 		
 

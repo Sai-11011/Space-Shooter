@@ -16,7 +16,8 @@ const SCENES := {
 	"shop":"uid://dgytnrptoqh6y",
 	"options":"uid://c630bxhkysr62",
 	"swarmers":"uid://mr0m4apc7yrv",
-	"coins":"uid://byvothgeu7cja"
+	"coins":"uid://byvothgeu7cja",
+	"demo_end":"uid://b10aa3fnflrpj"
 }
 
 const WAVES_DATA :={
@@ -30,26 +31,26 @@ const WAVES_DATA :={
 	"2":{
 		"enemies":{
 			"asteroids" : {
-				"normal":15
+				"normal":5
 			}
 		},
 	},
 	"3":{
 		"enemies":{
 			"asteroids": {
-				"normal" : 15,
+				"normal" : 5,
 			}
 		},
 		"special":{
 			"swarmers": {
-				"normal":10
+				"normal":1
 			}
 		}
 	},
 	"4":{
 		"enemies":{
 			"asteroids":{
-				"normal" : 15,
+				"normal" : 1,
 			},
 			"swarmers":{
 				"elite":5
@@ -59,7 +60,7 @@ const WAVES_DATA :={
 	"5":{
 		"enemies":{
 			"swarmers":{
-				"normal" : 15,
+				"normal" : 1,
 				"elite": 5
 			}
 		},
