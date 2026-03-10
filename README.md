@@ -1,6 +1,9 @@
-* **Chore**:
-  * Updated README.md for improved readability and clarity
-* **Bug Fix**: None
-* **Feature**: None 
-
-Note: This update primarily focuses on refining the project's documentation for better user experience.
+* **Feature**: 
+  * Added support for multiple file uploads
+  * Implemented a new sorting algorithm for improved performance
+* **Bug Fix**: 
+  * Resolved an issue with incorrect data formatting
+  * Fixed a bug causing the application to crash on certain input
+* **Chore**: 
+  * Refactored code for better readability and maintainability
+  * Updated dependencies to the latest versions
