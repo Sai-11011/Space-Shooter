@@ -1,7 +1,6 @@
-* **Feature**:
-  * Replaced OAuth 2.0 authentication system with a new login system featuring two-factor authentication
-  * Enhanced user interface with customizable theme settings
-* **Bug Fix**:
+* **Feature**: 
+  * Updated README.md to reflect recent changes
+* **Bug Fix**: 
   * None
-* **Chore**:
-  * Updated README.md to include sample changelog format
+* **Chore**: 
+  * Updated README.md to include sample changelog format and removed unnecessary information
