@@ -1,4 +1,5 @@
 Here's a short, bulleted changelog for the code changes:
+
 * **Feature**:
   * Implemented a new sorting algorithm to improve data retrieval efficiency
   * Added support for multiple file formats in the data import function
