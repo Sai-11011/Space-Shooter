@@ -1,4 +1,5 @@
 * **Feature**: None
-* **Bug Fix**: 
-  * Fixed a bug causing the application to crash when handling large datasets
-* **Chore**: Updated README.md to include a changelog template for future updates
+* **Bug Fix**: None
+* **Chore**: 
+  * Removed existing changelog from README.md
+  * Updated README.md to include a changelog template for future updates
