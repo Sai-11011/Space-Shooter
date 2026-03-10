@@ -1,4 +1,5 @@
 Here's a short, bulleted changelog for the code changes:
+
 * **Chore**:
   * Removed existing changelog from README.md
   * Updated README.md to include a changelog template for future updates
