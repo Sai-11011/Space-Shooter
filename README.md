@@ -1,5 +1,4 @@
 Here's a short, bulleted changelog for the code changes:
-
 * **Feature**:
   * Added support for multiple file uploads
   * Implemented a new sorting algorithm for improved performance
