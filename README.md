@@ -1,12 +1,8 @@
-Here is a rewritten, short, bulleted changelog for the code changes, categorized by Feature, Bug Fix, or Chore:
+Here's a short, bulleted changelog for the code changes:
 
-* **Feature**:
-  * Implemented new authentication mechanism using OAuth 2.0
-  * Added support for dark mode in the user interface
-* **Bug Fix**:
-  * Resolved issue with data not being saved correctly in the database
-  * Fixed bug that caused the application to crash on startup
+* **Feature**: Updated audio nodes to use `AudioStreamPlayer` instead of `AudioStreamPlayer2D` for improved compatibility
+* **Bug Fix**: None
 * **Chore**:
-  * Updated dependencies to the latest versions
-  * Refactored code to improve performance and readability 
-  * Updated README.md to reflect current changelog format
+  * Adjusted volume levels for "Click", "Upgrade", and "BGM" audio nodes
+  * Removed `max_distance` property from "BGM" node, as it's not applicable to `AudioStreamPlayer`
+  * Updated unique IDs for "Click", "Upgrade", and "BGM" nodes
