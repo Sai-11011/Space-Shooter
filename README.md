@@ -1,5 +1,3 @@
-Here is a short, bulleted changelog for the code changes:
-
 * **Feature**:
   * Added support for multiple file formats in the data import function
 * **Bug Fix**: None
