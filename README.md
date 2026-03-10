@@ -7,5 +7,5 @@ Here is a short, bulleted changelog for the code changes, categorized by Feature
   * Updated dependencies to the latest versions
   * Refactored code for better readability and maintainability
   * Updated README.md for improved readability and clarity
-  * Updated audio manager settings, including volume adjustments and type changes for certain audio players (Click, Upgrade, BGM)
-  * Updated README.md to remove outdated changelog template
+  * Updated audio manager settings, including volume adjustments and type changes for certain audio players (Click, Upgrade, BGM) 
+  * Removed outdated changelog template from README.md
