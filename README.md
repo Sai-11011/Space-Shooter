@@ -1,3 +1,4 @@
+Here's a short, bulleted changelog for the code changes:
 * **Feature**: None
 * **Bug Fix**: 
   * Fixed a bug causing the application to crash when handling large datasets
