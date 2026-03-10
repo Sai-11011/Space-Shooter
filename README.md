@@ -1,5 +1,3 @@
-Here is a short, bulleted changelog for the code changes:
-
 * **Feature**:
   * Implemented new authentication mechanism using OAuth 2.0
   * Added support for dark mode in the user interface
