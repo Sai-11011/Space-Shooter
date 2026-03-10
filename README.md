@@ -1,5 +1,4 @@
 Here's a short, bulleted changelog for the code changes:
-
 * **Feature**:
   • Implemented OAuth 2.0 authentication for enhanced security
   • Added support for multiple payment gateways
