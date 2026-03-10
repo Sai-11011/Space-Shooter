@@ -1,7 +1,7 @@
-* **Feature**:
-  • Implemented OAuth 2.0 authentication for enhanced security
-  • Added support for multiple payment gateways
-* **Bug Fix**:
-  • None
-* **Chore**:
-  • Updated README.md to include a short, bulleted changelog for the code changes
+* **Feature**: 
+  • No new features added in this update
+* **Bug Fix**: 
+  • Resolved issue with missing bug fixes in changelog
+* **Chore**: 
+  • Updated README.md to include a short, bulleted changelog for the code changes, replacing the previous changelog 
+  • Removed unnecessary lines from the changelog
