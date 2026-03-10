@@ -1,4 +1,5 @@
 Here's a short, bulleted changelog for the code changes:
+
 * **Feature**:
   * Replaced OAuth 2.0 authentication system with a new login system featuring two-factor authentication
   * Enhanced user interface with customizable theme settings
