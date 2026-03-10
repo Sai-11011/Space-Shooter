@@ -1,4 +1,3 @@
-Here's a short, bulleted changelog for the code changes:
 * **Feature**:
   • Implemented a new login system using OAuth 2.0
   • Added support for dark mode in the application
