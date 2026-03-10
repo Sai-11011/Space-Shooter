@@ -1,7 +1,6 @@
-Here's a short, bulleted changelog for the code changes:
-
 * **Chore**:
-  • Removed unnecessary lines from README.md file to simplify the introduction section
+  • Updated README.md file to include a changelog section
+  • Simplified the introduction section by removing unnecessary lines
   • Updated changelog format to improve readability
 * **Bug Fix**:
   • No bug fixes were made in this update
