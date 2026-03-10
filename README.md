@@ -1,5 +1,3 @@
-Here's a short bulleted changelog for the code changes:
-
 * **Feature**: None
 * **Bug Fix**: 
   * Resolved an issue where the application would crash on startup for Android 11 devices
