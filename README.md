@@ -1,4 +1,3 @@
-Here's a short, bulleted changelog for the code changes:
 * **Feature**: 
   • No new features added in this update
 * **Bug Fix**: 
