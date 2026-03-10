@@ -13,8 +13,9 @@
 process_mode = 3
 script = ExtResource("1_4tj6f")
 
-[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1374135215]
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=277667235]
 stream = ExtResource("2_hhwve")
+volume_db = -10.0
 bus = &"Sfx"
 
 [node name="LaserBullet" type="AudioStreamPlayer2D" parent="." unique_id=321430071]
@@ -35,11 +36,12 @@ stream = ExtResource("6_mjqhu")
 attenuation = 6.4980216
 bus = &"Sfx"
 
-[node name="Upgrade" type="AudioStreamPlayer2D" parent="." unique_id=2021941531]
+[node name="Upgrade" type="AudioStreamPlayer" parent="." unique_id=1488565485]
 stream = ExtResource("7_5kf6k")
+volume_db = -10.0
 bus = &"Sfx"
 
-[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1392355511]
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=618324965]
 stream = ExtResource("8_tnn7g")
-max_distance = 4096.0
+volume_db = -3.0
 bus = &"Music"
