@@ -1,9 +1,3 @@
-* **Feature**:
-  * Implemented new authentication mechanism using OAuth 2.0
-  * Added support for multiple user roles with varying access levels
-* **Bug Fix**:
-  * Resolved issue with data not being persisted correctly in the database
-  * Fixed error handling for API requests to prevent server crashes
-* **Chore**:
-  * Updated dependencies to the latest versions for security and performance enhancements
-  * Refactored code to improve readability and maintainability
+* **Chore**: 
+  * Updated README.md to remove unnecessary text and improve clarity
+* No **Feature** or **Bug Fix** changes were made in this commit, as the changes only involved updating the README.md file for better documentation.
