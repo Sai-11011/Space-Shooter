@@ -1,8 +1,6 @@
-* **Chore**:
-  • Updated README.md file to include a changelog section
-  • Simplified the introduction section by removing unnecessary lines
-  • Updated changelog format to improve readability
-* **Bug Fix**:
-  • No bug fixes were made in this update
-* **Feature**:
-  • None added in this update
+Here's a short bulleted changelog for the code changes:
+* **Chore**: Updated README.md to correct minor formatting and wording inconsistencies.
+* **Feature**: None
+* **Bug Fix**: None 
+
+Note: Since there were no actual feature additions or bug fixes, this changelog primarily reflects a minor update to the README file for better consistency.
