@@ -1,6 +1,9 @@
-* **Chore**: 
-  * Updated README.md to remove unnecessary whitespace and improve formatting
+Here's a short, bulleted changelog for the code changes:
 * **Feature**:
   * Added support for multiple file uploads
-  * Implemented a new sorting algorithm for improved performance 
-* No bug fixes in this release.
+  * Implemented a new sorting algorithm for improved performance
+* **Bug Fix**:
+  * None
+* **Chore**:
+  * Updated README.md to remove unnecessary whitespace, improve formatting, and include a changelog
+  * Refactored changelog categorization for clarity and accuracy
