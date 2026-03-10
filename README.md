@@ -5,4 +5,4 @@
 * **Bug Fix**:
   • No bug fixes were made in this update
 * **Feature**:
-  • No new features were added in this update
+  • None added in this update
