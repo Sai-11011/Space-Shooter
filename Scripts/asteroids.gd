@@ -2,14 +2,14 @@ extends Area2D
 
 @onready var asteroid_sprite = $Sprite2D
 @onready var coin_scene = load(Global.SCENES.coins)
-@onready var debries_scene:= load(Global.SCENES.debries)
+@onready var debris_scene:= load(Global.SCENES.debris)
 var enemy_variant :String
 var speed : float
 var health : float
 var score : float
 var damage : float
 var coins :int
-@onready var player = get_tree().root.get_node("Main/Player")
+@onready var player = get_tree().get_first_node_in_group("player")
 # Call this from main.gd right after instantiate()
 func setup(enemy_type: String, variant: String) -> void:
 	var data = Global.ENEMY_DATA[enemy_type][variant]
@@ -37,7 +37,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.take_damage(damage)
-		spawn_debries()
+		spawn_debris()
 		queue_free() 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -46,20 +46,16 @@ func _on_area_entered(area: Area2D) -> void:
 		health-= area.damage
 		if health <= 0:
 			get_tree().root.get_node("Main").score_increase(score)
-			spawn_debries()
-			var coins_instance = coin_scene.instantiate()
-			coins_instance.global_position = global_position
-			coins_instance.coins_to_increase = coins
-			coins_instance.look_at(player.position)
+			spawn_debris()
 			if enemy_variant == "normal":
 				if randf()<0.75:
-					get_parent().call_deferred("add_child", coins_instance)
+					Global.spawn_coin(global_position,coins,get_parent())
 			if enemy_variant == "elite" :
-				get_parent().call_deferred("add_child", coins_instance)
+				Global.spawn_coin(global_position,coins,get_parent())
 			queue_free()
 		
 
-func spawn_debries():
-	var debries = debries_scene.instantiate()
-	debries.global_position = global_position
-	get_parent().add_child(debries)
+func spawn_debris():
+	var debris = debris_scene.instantiate()
+	debris.global_position = global_position
+	get_parent().add_child(debris)

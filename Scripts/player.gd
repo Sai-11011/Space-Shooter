@@ -16,7 +16,7 @@ var flash_tween: Tween
 # Calculated Stats
 var max_speed : float = 80.0
 var acceleration : float = 1000.0
-var friction : float = 200.0
+var friction : float = 500.0
 var health : float
 var damage : float
 var fire_rate : float
@@ -39,11 +39,14 @@ func _physics_process(delta: float) -> void:
 		# If the math returns > 0, you are generally moving forward
 		if forward_movement > 0.2:
 			engine_particles.emitting = true
+			AudioManager.play_thrusters()
 		else:
 			# Flying backwards or sideways! Turn off the main engine.
+			AudioManager.stop_thrusters()
 			engine_particles.emitting = false
 	else:
 		# Standing still
+		AudioManager.stop_thrusters()
 		engine_particles.emitting = false
 	# --------------------------
 	
@@ -89,6 +92,7 @@ func shoot() -> void:
 
 func take_damage(damaged_health):
 	invincibility()
+	AudioManager.play_damage()
 	health -= damaged_health
 	health_change.emit(health)
 	if health <= 0:

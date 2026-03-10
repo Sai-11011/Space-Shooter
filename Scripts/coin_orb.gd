@@ -9,5 +9,6 @@ func _process(delta: float) -> void:
 	Global.follow_player_movement(self, player, speed, delta)
 
 func _on_body_entered(_body: Node2D) -> void:
+	AudioManager.play_pickup()
 	PlayerData.player_save["coins"] += coins_to_increase
 	queue_free()

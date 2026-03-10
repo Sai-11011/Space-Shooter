@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dcsrskdi1573j"]
+
+[ext_resource type="Script" uid="uid://bp4443kna2ik5" path="res://Scripts/audio_manager.gd" id="1_4tj6f"]
+[ext_resource type="AudioStream" uid="uid://crcwwdkdh2pna" path="res://Assets/SFX & Music/click.wav" id="2_hhwve"]
+[ext_resource type="AudioStream" uid="uid://clt4d0fv6awih" path="res://Assets/SFX & Music/laserShoot.wav" id="3_hhwve"]
+[ext_resource type="AudioStream" uid="uid://dpn6u2wnsjq8g" path="res://Assets/SFX & Music/pickupCoin.wav" id="4_qixve"]
+[ext_resource type="AudioStream" uid="uid://bhbmnsafoxh1i" path="res://Assets/SFX & Music/explosion.wav" id="5_0hehx"]
+[ext_resource type="AudioStream" uid="uid://6rtkf7wabvb7" path="res://Assets/SFX & Music/Trusters.wav" id="6_mjqhu"]
+[ext_resource type="AudioStream" uid="uid://dtp5t458sn0rt" path="res://Assets/SFX & Music/Upgrade.wav" id="7_5kf6k"]
+[ext_resource type="AudioStream" uid="uid://bubtm8lfcuu83" path="res://Assets/SFX & Music/BGM.wav" id="8_tnn7g"]
+
+[node name="AudioManager" type="Node" unique_id=2122585885]
+process_mode = 3
+script = ExtResource("1_4tj6f")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1374135215]
+stream = ExtResource("2_hhwve")
+bus = &"Sfx"
+
+[node name="LaserBullet" type="AudioStreamPlayer2D" parent="." unique_id=321430071]
+stream = ExtResource("3_hhwve")
+volume_db = -9.165
+bus = &"Sfx"
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="." unique_id=1649203957]
+stream = ExtResource("4_qixve")
+bus = &"Sfx"
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="." unique_id=1425299456]
+stream = ExtResource("5_0hehx")
+bus = &"Sfx"
+
+[node name="Thrusters" type="AudioStreamPlayer2D" parent="." unique_id=255983785]
+stream = ExtResource("6_mjqhu")
+attenuation = 6.4980216
+bus = &"Sfx"
+
+[node name="Upgrade" type="AudioStreamPlayer2D" parent="." unique_id=2021941531]
+stream = ExtResource("7_5kf6k")
+bus = &"Sfx"
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1392355511]
+stream = ExtResource("8_tnn7g")
+max_distance = 4096.0
+bus = &"Music"

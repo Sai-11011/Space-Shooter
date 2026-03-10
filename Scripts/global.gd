@@ -7,15 +7,15 @@ var coin_sprite := "uid://bm1el4hd612c1"
 const SCENES := {
 	"asteroids" : "uid://be3g1my4xgjv3",
 	"bullet" : "uid://c0pmpn3i4eeyr",
-	"debries" : "uid://dwtuv6g12fu8m",
-	"hanger" : "uid://cs08l7k75auvx",
+	"debris" : "uid://dwtuv6g12fu8m",
+	"hangar" : "uid://cs08l7k75auvx",
 	"main" : "uid://cx2pqbupj44x2",
 	"main_menu" : "uid://c4sfrp1apvpjs",
 	"player" : "uid://wps0hpecyxnr",
 	"start_ui":"uid://bfhhy2axnjpom",
 	"shop":"uid://dgytnrptoqh6y",
 	"options":"uid://c630bxhkysr62",
-	"swamers":"uid://mr0m4apc7yrv",
+	"swarmers":"uid://mr0m4apc7yrv",
 	"coins":"uid://byvothgeu7cja"
 }
 
@@ -41,7 +41,7 @@ const WAVES_DATA :={
 			}
 		},
 		"special":{
-			"swamers": {
+			"swarmers": {
 				"normal":10
 			}
 		}
@@ -51,20 +51,20 @@ const WAVES_DATA :={
 			"asteroids":{
 				"normal" : 15,
 			},
-			"swamers":{
+			"swarmers":{
 				"elite":5
 			}
 		}
 	},
 	"5":{
 		"enemies":{
-			"swamers":{
+			"swarmers":{
 				"normal" : 15,
 				"elite": 5
 			}
 		},
 		"special":{
-			"swamers":{
+			"swarmers":{
 				"boss":1
 			}
 		}
@@ -90,7 +90,7 @@ const ENEMY_DATA := {
 			"speed":80
 		}
 	},#scene not created yet after creating i will add them in waves accordingly
-	"swamers":{
+	"swarmers":{
 		"normal":{
 			"coins":10,
 			"sprite":"uid://bp1273m0mthun",
@@ -276,3 +276,11 @@ func follow_player_movement(follower: Area2D, target: Node2D, speed: float, delt
 	
 	# 5. Move forward
 	follower.global_position += follower.transform.x * speed * delta
+
+
+func spawn_coin(position,coins,parent_node):
+	var coin_scene = load(SCENES.coins)
+	var coins_instance = coin_scene.instantiate()
+	coins_instance.global_position = position
+	coins_instance.coins_to_increase = coins
+	parent_node.call_deferred("add_child", coins_instance)

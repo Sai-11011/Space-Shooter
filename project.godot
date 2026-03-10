@@ -22,6 +22,7 @@ boot_splash/hdr_2d=false
 
 Global="*uid://umdrxxswf2rv"
 PlayerData="*uid://ofaq0ifduwlx"
+AudioManager="*uid://dcsrskdi1573j"
 
 [display]
 

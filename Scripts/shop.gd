@@ -15,6 +15,7 @@ const  all_items := Global.SHIP_TEMPLATES
 @onready var buy_button := $MarginContainer/MainVBox/MainSplit/ShowcasePanel/HBoxContainer/VBoxContainer/MarginContainer/BuyButton
 
 func _on_back_button_pressed() -> void:
+	AudioManager.play_click()
 	get_tree().change_scene_to_packed(main_menu)
 
 func  _ready() -> void:
@@ -36,19 +37,25 @@ func render_spaceships():
 
 func _on_ship_button_1_pressed() -> void:
 	current_item = "1"
+	AudioManager.play_click()
 	render_spaceships()
 
 func _on_ship_button_2_pressed() -> void:
 	current_item = "2"
+	AudioManager.play_click()
 	render_spaceships()
 
 func _on_ship_button_3_pressed() -> void:
 	current_item = "3"
+	AudioManager.play_click()
 	render_spaceships()
 
 func _on_buy_button_pressed() -> void:
 	if PlayerData.player_save["coins"] >= all_items[current_item]["coins"]:
 		buy()
+		AudioManager.play_upgrade()
+	else:
+		AudioManager.play_click()
 
 func buy():
 	PlayerData.player_save["coins"] -= current_price
@@ -73,3 +80,4 @@ func buy():
 		}
 	}
 	render_spaceships()
+	

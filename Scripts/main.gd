@@ -202,6 +202,7 @@ func pause():
 
 #buttons
 func _on_resume_button_pressed() -> void:
+	AudioManager.play_click()
 	pause_ui_node.visible = false
 	Input.set_custom_mouse_cursor(target_cursor, Input.CURSOR_ARROW, center_hotspot)
 	get_tree().paused = false
@@ -233,4 +234,5 @@ func _on_enemy_timer_timeout() -> void:
 
 
 func _on_menu_button_pressed() -> void:
+	AudioManager.play_click()
 	get_tree().change_scene_to_packed(main_menu)
