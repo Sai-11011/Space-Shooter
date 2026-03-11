@@ -10,10 +10,12 @@ extends Control
 @onready var coins = $MarginContainer/TopHBox/CoinBox/Amount
 @onready var endless = $MarginContainer/CenterMenu/MainButtons/EndlessButton
 
+# INITIALIZATION 
 func _ready() -> void:
 	PlayerData.render_coins(coins)
 	Global.check_for_endless_button(endless)
 
+# BUTTONS 
 func _on_play_button_pressed() -> void:
 	AudioManager.play_click()
 	Global.endless_mode = false

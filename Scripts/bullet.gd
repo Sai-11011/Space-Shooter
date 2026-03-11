@@ -3,9 +3,11 @@ extends Area2D
 @export var speed: float = 900.0
 var damage :float
 
+# INITIALIZATION
 func _ready() -> void:
 	AudioManager.play_bullet()
 
+# BEHAVIOR & PHYSICS 
 func _physics_process(delta: float) -> void:
 	global_position += transform.x * speed * delta
 

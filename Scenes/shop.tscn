@@ -157,6 +157,7 @@ theme_override_constants/margin_left = 300
 theme_override_constants/margin_right = 300
 
 [node name="BuyButton" type="Button" parent="MarginContainer/MainVBox/MainSplit/ShowcasePanel/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1614814199]
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 theme = ExtResource("5_k6jq0")
 theme_override_fonts/font = ExtResource("1_io27d")

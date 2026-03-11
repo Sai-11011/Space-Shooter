@@ -1,8 +1,8 @@
 extends Node
 
+# CONSTANTS & SCENES 
 const MAX_WAVES := 5
 var instant_restart := false
-var endless_unlocked:= false
 var endless_mode:= false
 var coin_sprite := "uid://bm1el4hd612c1"
 
@@ -247,6 +247,7 @@ var SHOP := {
 	"ship_ids" : ["1","2","3"]
 }
 
+# UTILITIES & EFFECTS 
 func slam_effect(slam):
 	var tween = create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
@@ -255,7 +256,9 @@ func slam_effect(slam):
 	.set_ease(Tween.EASE_OUT)\
 	.from(Vector2(3, 3))
 
+# GAMEPLAY HELPERS 
 func follow_player_movement(follower: Area2D, target: Node2D, speed: float, delta: float, rotation_speed: float = 10.0, separation_force: float = 15.0) -> void:
+	#Recheck
 	if not is_instance_valid(target) or not is_instance_valid(follower):
 		return 
 		
@@ -264,7 +267,10 @@ func follow_player_movement(follower: Area2D, target: Node2D, speed: float, delt
 	var separation = Vector2.ZERO
 	
 	# 2. Check for overlapping friends (using the enemy's collision area)
-	for area in follower.get_overlapping_areas():
+	var overlapping = follower.get_overlapping_areas()
+	var limit = min(overlapping.size(), 3)
+	for i in range(limit):
+		var area = overlapping[i]
 		if area.is_in_group("enemy") and area != follower:
 			var push_vector = follower.global_position - area.global_position
 			if push_vector.length() > 0: 
@@ -281,7 +287,7 @@ func follow_player_movement(follower: Area2D, target: Node2D, speed: float, delt
 	follower.global_position += follower.transform.x * speed * delta
 
 func check_for_endless_button(endless) -> void:
-	if endless_unlocked:
+	if PlayerData.player_save.endless_unlocked:
 		endless.show()
 	else :
 		endless.hide()

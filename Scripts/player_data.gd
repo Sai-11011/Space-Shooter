@@ -1,5 +1,6 @@
 extends Node
 
+# GLOBALS & SAVE STATE 
 const MAX_LEVEL = 10
 
 var high_score: int = 0
@@ -15,10 +16,12 @@ var settings: Dictionary = {
 }
 
 # The Save File: Only stores currency, equipped items, and integer levels.
+# I WILL CHANGE IT TO PERMINANT STORAGE LATER
 var player_save := {
 	"coins": 100000,
 	"score":0,
 	"current_run_coins":0,
+	"endless_unlocked": false,
 	"equipped_ship": "0",
 	"enemies_destroyed":0,
 	"unlocked_ships":{
@@ -45,6 +48,7 @@ var player_save := {
 }
 
 
+# UPGRADE SYSTEM LOGIC 
 func get_upgrade_cost(ship_id: String, stat_name: String) -> Array:
 	var template = Global.SHIP_TEMPLATES[ship_id][stat_name]
 	var current_level = player_save.unlocked_ships[ship_id][stat_name]["level"]
@@ -78,8 +82,10 @@ func attempt_upgrade(ship_id: String, stat_name: String) -> bool:
 		return false
 		
 
+# DATA FORMATTING & RENDERING 
 func render_coins(coins_node) -> void:
 	coins_node.text = format_coins(player_save.coins+player_save.current_run_coins)
+
 
 func render_live_data(score_node,kills_node,orbs_node):
 	score_node.text += str(PlayerData.player_save.score)
@@ -99,12 +105,14 @@ func format_coins(amount: int) -> String:
 	else:
 		return str(amount)
 
+# PROGRESSION LOGIC
 func disable_button(button_node) -> void:
 	button_node.disabled = true
 	button_node.focus_mode = Control.FOCUS_NONE
 	if button_node.has_focus():
 		button_node.release_focus()
 
+# RUN LOGIC 
 func run_complete():
 	player_save.coins += player_save.current_run_coins
 	player_save.current_run_coins = 0

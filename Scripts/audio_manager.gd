@@ -1,8 +1,10 @@
 extends Node
 
+# INITIALIZATION 
 func _ready() -> void:
 	play_bgm()
 
+# AUDIO PLAYBACK FUNCTIONS
 func play_bullet():
 	$LaserBullet.play()
 

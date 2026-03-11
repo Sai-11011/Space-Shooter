@@ -23,17 +23,34 @@ var fire_rate : float
 var max_health : float
 var sprite : String
 
-@onready var engine_particles := $CPUParticles2D # Drag your particle node here
+@onready var engine_particles := $CPUParticles2D
 
+# CURSORS
+var default_cursor = preload("uid://45poew1w6b2g")
+
+# INITIALIZATION 
+func _ready() -> void:
+	sprite = ship_data.sprite
+	player_sprite.texture = load(sprite)
+	
+	max_speed = ship_data.speed.stat
+	health = ship_data.health.stat
+	damage = ship_data.damage.stat
+	fire_rate = ship_data.fire_rate.stat
+	
+	max_health = health
+	
+	bullet_timer.wait_time = fire_rate
+
+# MOVEMENT & PHYSICS 
 func _physics_process(delta: float) -> void:
+	# MOVEMENT
 	process_movement(delta)
 	look_at(get_global_mouse_position())
 	move_and_slide()
 	
 	# --- SMART ENGINE LOGIC ---
 	if velocity.length() > 0:
-		# transform.x is the direction the front of your ship is pointing
-		# We compare it against the direction you are actually moving
 		var forward_movement = transform.x.dot(velocity.normalized())
 		
 		# If the math returns > 0, you are generally moving forward
@@ -41,38 +58,16 @@ func _physics_process(delta: float) -> void:
 			engine_particles.emitting = true
 			AudioManager.play_thrusters()
 		else:
-			# Flying backwards or sideways! Turn off the main engine.
 			AudioManager.stop_thrusters()
 			engine_particles.emitting = false
 	else:
-		# Standing still
 		AudioManager.stop_thrusters()
 		engine_particles.emitting = false
-	# --------------------------
-	
+
+	#SHOOT
 	if Input.is_action_pressed("shoot") and bullet_timer.is_stopped() :
 		shoot()
 		bullet_timer.start()
-
-func _ready() -> void:
-	# 1. Load the Sprite
-	sprite = ship_data.sprite
-	player_sprite.texture = load(sprite)
-	
-	# 2. Calculate Actual Values: Base + (Growth * Level)
-	max_speed = ship_data.speed.stat
-	health = ship_data.health.stat
-	damage = ship_data.damage.stat
-	fire_rate = ship_data.fire_rate.stat
-	
-	# Set max health for UI/Healing logic later
-	max_health = health
-	
-	# 3. Apply Fire Rate to the Timer
-	bullet_timer.wait_time = fire_rate
-
-# CURSORS
-var default_cursor = preload("uid://45poew1w6b2g")
 
 func process_movement(delta) -> void :
 	var direction := Input.get_vector("left", "right", "up", "down")
@@ -81,16 +76,22 @@ func process_movement(delta) -> void :
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
-	
 
+# COMBAT & ACTIONS 
 func shoot() -> void:
 	var bullet = bullet_scene.instantiate()
 	bullet.damage = damage
 	bullet.global_position = bullet_start_position.global_position
 	bullet.global_rotation = global_rotation
-	get_tree().root.get_node("Main/BulletContainer").add_child(bullet)
+	
+	if get_tree().current_scene.has_node("BulletContainer"):
+		get_tree().current_scene.get_node("BulletContainer").add_child(bullet)
+	else:
+		get_parent().add_child(bullet)
 
 func take_damage(damaged_health):
+	if invincible or health <= 0: return 
+	
 	invincibility()
 	AudioManager.play_damage()
 	health -= damaged_health
@@ -99,6 +100,7 @@ func take_damage(damaged_health):
 		player_died.emit()
 		Input.set_custom_mouse_cursor(default_cursor)
 
+# STATUS & TIMERS 
 func invincibility():
 	flash_tween = create_tween()
 	flash_tween.set_loops()

@@ -14,14 +14,12 @@ const  all_items := Global.SHIP_TEMPLATES
 @onready var item_description := $MarginContainer/MainVBox/MainSplit/ShowcasePanel/HBoxContainer/VBoxContainer/ItemDescription
 @onready var buy_button := $MarginContainer/MainVBox/MainSplit/ShowcasePanel/HBoxContainer/VBoxContainer/MarginContainer/BuyButton
 
-func _on_back_button_pressed() -> void:
-	AudioManager.play_click()
-	get_tree().change_scene_to_packed(main_menu)
-
+# INITIALIZATION 
 func  _ready() -> void:
 	PlayerData.render_coins(coins)
 	render_spaceships()
 
+# RENDERING
 func render_spaceships():
 	sprite.texture = load(all_items[current_item]["sprite"])
 	item_name.text = all_items[current_item]["name"]
@@ -35,28 +33,7 @@ func render_spaceships():
 		buy_button.disabled = false
 		buy_button.text = PlayerData.format_coins(current_price)
 
-func _on_ship_button_1_pressed() -> void:
-	current_item = "1"
-	AudioManager.play_click()
-	render_spaceships()
-
-func _on_ship_button_2_pressed() -> void:
-	current_item = "2"
-	AudioManager.play_click()
-	render_spaceships()
-
-func _on_ship_button_3_pressed() -> void:
-	current_item = "3"
-	AudioManager.play_click()
-	render_spaceships()
-
-func _on_buy_button_pressed() -> void:
-	if PlayerData.player_save["coins"] >= all_items[current_item]["coins"]:
-		buy()
-		AudioManager.play_upgrade()
-	else:
-		AudioManager.play_click()
-
+# SHOP ACTIONS 
 func buy():
 	PlayerData.player_save["coins"] -= current_price
 	PlayerData.render_coins(coins)
@@ -80,4 +57,29 @@ func buy():
 		}
 	}
 	render_spaceships()
-	
+
+# BUTTONS 
+func select_ship_id(id: String): 
+	current_item = id
+	AudioManager.play_click()
+	render_spaceships()
+
+func _on_ship_button_1_pressed() -> void:
+	select_ship_id("1")
+
+func _on_ship_button_2_pressed() -> void:
+	select_ship_id("2")
+
+func _on_ship_button_3_pressed() -> void:
+	select_ship_id("3")
+
+func _on_buy_button_pressed() -> void:
+	if PlayerData.player_save["coins"] >= all_items[current_item]["coins"]:
+		buy()
+		AudioManager.play_upgrade()
+	else:
+		AudioManager.play_click()
+
+func _on_back_button_pressed() -> void:
+	AudioManager.play_click()
+	get_tree().change_scene_to_packed(main_menu)
