@@ -28,10 +28,10 @@ expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_344ge"]
 bg_color = Color(0, 0.8980392, 1, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
 border_blend = true
 expand_margin_left = 5.0

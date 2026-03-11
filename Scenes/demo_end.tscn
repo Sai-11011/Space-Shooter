@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="3_bakid"]
 
 [node name="DemoEnd" type="Control" unique_id=170187400]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,6 +39,8 @@ theme_override_constants/separation = 30
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1361695243]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_dwr2f")
 theme_override_font_sizes/font_size = 60
@@ -80,6 +83,7 @@ text = "Enemies killed : "
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MainContent/VBoxContainer/OrbsHBox" unique_id=549817057]
+process_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Orbs Collected : "

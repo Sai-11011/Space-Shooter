@@ -17,6 +17,10 @@ var default_cursor = preload("uid://45poew1w6b2g")
 var center_hotspot = Vector2(16, 16)
 # ALL NODES
 
+@onready var kills_node :=$UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer/KillsHBox/Label
+@onready var orbs_node :=$UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer/OrbsHBox/Label
+@onready var score_pause_node :=$UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer/ScoreHBox/Label
+
 #UI hud
 @onready var health_bar := $UI/GameUI/MarginContainerTop/HealthBar
 @onready var score_node := $UI/GameUI/MarginContainerTop/Score/Label
@@ -39,6 +43,8 @@ var center_hotspot = Vector2(16, 16)
 @onready var pause_ui_node := $UI/PauseUI
 @onready var gameover_ui_node := $UI/GameOverUI
 @onready var enemies_container :=$EnemiesContainer
+@onready var data_for_endless := $UI/PauseUI/MainSplit/RightTacticalPanel/MainContent
+@onready var data_for_waves := $UI/PauseUI/MainSplit/RightTacticalPanel/TacticalVBox
 #CURRENT
 var score :int = 0
 var current_enemies : Dictionary
@@ -65,7 +71,7 @@ func _process(_delta: float) -> void:
 	if final_wave_spawn_complete and enemies_container.get_child_count() == 0:
 		PlayerData.player_save.score = score
 		PlayerData.update_score()
-		get_tree().change_scene_to_packed(demo_end )
+		get_tree().change_scene_to_packed(demo_end)
 
 #ENEMY LOGIC
 func select_position() -> Vector2 :
@@ -78,6 +84,10 @@ func select_position() -> Vector2 :
 	return Vector2(x_spawn,y_spawn)
 
 func prepare_wave_data():
+	if Global.endless_mode:
+		start_endless()
+		return
+	
 	var wave_key = str(current_wave)
 	waves_node.text = "Wave = " + wave_key
 	
@@ -123,6 +133,8 @@ func select_enemies_to_spawn():
 				current_wave += 1
 				wave_init = false
 			else:
+				if Global.endless_mode:
+					return
 				final_wave_spawn_complete = true
 
 	if enemies_list.is_empty(): return # Safety check
@@ -154,6 +166,8 @@ func spawn_enemy(enemy_key: String):
 		enemy_instance.position = select_position()
 		enemy_instance.look_at(player_node.global_position)
 		enemies_container.add_child(enemy_instance)
+		if Global.endless_mode:
+			return
 		update_enemies_list()
 # UI RELATED
 func update_health_bar(health:float)-> void:
@@ -192,6 +206,13 @@ func update_enemies_list():
 		enemies_list_node.text += " - "+enemy+" X"+str(current_enemies[enemy])+"\n"
 
 func game_over():
+	if Global.endless_mode == true:
+		PlayerData.player_save.score = score
+		PlayerData.update_score()
+		
+		get_tree().change_scene_to_packed(demo_end)
+		return
+		
 	game_over_score.text = "SCORE : "+ str(score)
 	game_over_wave.text = "WAVE : "+str(current_wave)
 	gameover_ui_node.visible = true
@@ -207,6 +228,14 @@ func pause():
 	PlayerData.render_coins(coins_node)
 	pause_ui_node.visible = true
 	Input.set_custom_mouse_cursor(default_cursor)
+	if Global.endless_mode:
+		data_for_waves.hide()
+		data_for_endless.show()
+		PlayerData.render_run_data(score_pause_node,kills_node,orbs_node)
+	else :
+		data_for_endless.hide()
+		data_for_waves.show()
+		
 
 #buttons
 func _on_resume_button_pressed() -> void:
@@ -235,6 +264,9 @@ func _on_countdown_timer_timeout() -> void:
 	countdown_timer_node.start()
 
 func _on_enemy_timer_timeout() -> void:
+	if Global.endless_mode :
+		start_endless()
+		return
 	if not wave_init :
 		prepare_wave_data()
 		wave_init = true
@@ -245,3 +277,7 @@ func _on_menu_button_pressed() -> void:
 	AudioManager.play_click()
 	PlayerData.run_complete()
 	get_tree().change_scene_to_packed(main_menu)
+
+func start_endless():
+	var enemy_to_spawn = PlayerData.endless_enemies.pick_random()
+	spawn_enemy(enemy_to_spawn)

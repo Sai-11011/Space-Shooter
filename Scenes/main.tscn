@@ -287,7 +287,7 @@ alignment = 1
 [node name="GameoverLabel" type="Label" parent="UI/GameOverUI/CenterLayout/MainVBox" unique_id=49376975]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
-theme_override_colors/font_outline_color = Color(0.9490196, 0, 0.5372549, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("4_jjvhh")
 theme_override_font_sizes/font_size = 96
@@ -378,7 +378,7 @@ alignment = 1
 [node name="Pause" type="Label" parent="UI/PauseUI/MainSplit/LeftNav" unique_id=1033606443]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.06666667, 0.043137256, 0.06666667, 1)
-theme_override_colors/font_outline_color = Color(0.9490196, 0, 0.5372549, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("4_jjvhh")
 theme_override_font_sizes/font_size = 86
@@ -456,6 +456,46 @@ theme_override_colors/font_outline_color = Color(0.06666667, 0.043137256, 0.0666
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_kry3j")
 theme_override_font_sizes/font_size = 32
+
+[node name="MainContent" type="CenterContainer" parent="UI/PauseUI/MainSplit/RightTacticalPanel" unique_id=199873268]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseUI/MainSplit/RightTacticalPanel/MainContent" unique_id=931155337]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Summary" type="Label" parent="UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer" unique_id=1807243705]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jjvhh")
+theme_override_font_sizes/font_size = 48
+text = "Run Summary"
+horizontal_alignment = 1
+
+[node name="ScoreHBox" type="HBoxContainer" parent="UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer" unique_id=413931376]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer/ScoreHBox" unique_id=878168577]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Score : "
+
+[node name="KillsHBox" type="HBoxContainer" parent="UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer" unique_id=1233109220]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer/KillsHBox" unique_id=257390750]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Enemies killed : "
+
+[node name="OrbsHBox" type="HBoxContainer" parent="UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer" unique_id=963312397]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/PauseUI/MainSplit/RightTacticalPanel/MainContent/VBoxContainer/OrbsHBox" unique_id=1264110733]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Orbs Collected : "
 
 [connection signal="timeout" from="Timers/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="timeout" from="Timers/CountdownTimer" to="." method="_on_countdown_timer_timeout"]

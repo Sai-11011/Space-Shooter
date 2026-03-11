@@ -5,6 +5,7 @@ const MAX_LEVEL = 10
 var high_score: int = 0
 var highest_wave: int = 1
 var current_checkpoint: int = 1
+var endless_enemies = ["asteroids:normal","swarmers:normal","asteroids:elite","swarmers:elite","swarmers:boss"]
 
 var settings: Dictionary = {
 	"fullscreen": false,
@@ -15,7 +16,7 @@ var settings: Dictionary = {
 
 # The Save File: Only stores currency, equipped items, and integer levels.
 var player_save := {
-	"coins": 1000,
+	"coins": 100000,
 	"score":0,
 	"current_run_coins":0,
 	"equipped_ship": "0",
@@ -80,6 +81,12 @@ func attempt_upgrade(ship_id: String, stat_name: String) -> bool:
 func render_coins(coins_node) -> void:
 	coins_node.text = format_coins(player_save.coins+player_save.current_run_coins)
 
+func render_live_data(score_node,kills_node,orbs_node):
+	score_node.text += str(PlayerData.player_save.score)
+	PlayerData.player_save.score = 0 #update to zero for the  next round.
+	kills_node.text += str(PlayerData.player_save.enemies_destroyed)
+	PlayerData.player_save.enemies_destroyed =0
+	orbs_node.text += str(PlayerData.player_save.current_run_coins)
 
 func format_coins(amount: int) -> String:
 	if amount >= 1_000_000:

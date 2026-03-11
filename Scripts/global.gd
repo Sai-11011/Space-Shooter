@@ -2,6 +2,8 @@ extends Node
 
 const MAX_WAVES := 5
 var instant_restart := false
+var endless_unlocked:= false
+var endless_mode:= false
 var coin_sprite := "uid://bm1el4hd612c1"
 
 const SCENES := {
@@ -278,6 +280,11 @@ func follow_player_movement(follower: Area2D, target: Node2D, speed: float, delt
 	# 5. Move forward
 	follower.global_position += follower.transform.x * speed * delta
 
+func check_for_endless_button(endless) -> void:
+	if endless_unlocked:
+		endless.show()
+	else :
+		endless.hide()
 
 func spawn_coin(position,coins,parent_node):
 	var coin_scene = load(SCENES.coins)

@@ -57,10 +57,12 @@ theme_override_constants/separation = 60
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=531886369]
 layout_mode = 2
-theme_override_constants/outline_size = 5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_663nc")
 theme_override_font_sizes/font_size = 64
-text = "system settings"
+text = "SYSTEM SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 

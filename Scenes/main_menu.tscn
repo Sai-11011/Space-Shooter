@@ -44,10 +44,12 @@ theme_override_constants/separation = 160
 
 [node name="Title" type="Label" parent="MarginContainer/TopHBox" unique_id=366128988]
 layout_mode = 2
-theme_override_constants/outline_size = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_ce3w2")
 theme_override_font_sizes/font_size = 80
-text = "Space Shooter"
+text = "SPACE SHOOTER"
 
 [node name="CoinBox" type="HBoxContainer" parent="MarginContainer/TopHBox" unique_id=1273205026]
 layout_mode = 2
@@ -82,7 +84,12 @@ focus_neighbor_left = NodePath("../../../ShopButton")
 focus_neighbor_right = NodePath("../../../ShopButton")
 focus_neighbor_bottom = NodePath("../HangerButton")
 theme = ExtResource("4_ce3w2")
-text = "play"
+text = "Story Mode"
+
+[node name="EndlessButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=406369886]
+layout_mode = 2
+theme = ExtResource("4_ce3w2")
+text = "Endless"
 
 [node name="HangerButton" type="Button" parent="MarginContainer/CenterMenu/MainButtons" unique_id=96266522]
 custom_minimum_size = Vector2(350, 70)
@@ -124,6 +131,7 @@ theme_override_font_sizes/font_size = 36
 text = "Go Back"
 
 [connection signal="pressed" from="MarginContainer/CenterMenu/MainButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterMenu/MainButtons/EndlessButton" to="." method="_on_endless_button_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterMenu/MainButtons/HangerButton" to="." method="_on_hanger_button_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterMenu/MainButtons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ShopButton" to="." method="_on_shop_button_pressed"]
