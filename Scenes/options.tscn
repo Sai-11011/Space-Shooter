@@ -3,23 +3,9 @@
 [ext_resource type="Script" uid="uid://d2qwbwkamusuv" path="res://Scripts/options.gd" id="1_ww8vx"]
 [ext_resource type="Texture2D" uid="uid://dabcwrpa5u582" path="res://Assets/Extras/Stars.png" id="2_kftxf"]
 [ext_resource type="FontFile" uid="uid://uwx2g6gkh8hk" path="res://Assets/Fonts/SpaceNova-6Rpd1.otf" id="3_663nc"]
+[ext_resource type="Texture2D" uid="uid://b2pyk4o812wty" path="res://Assets/Enemies/Swamers-2.png" id="4_663nc"]
 [ext_resource type="Theme" uid="uid://cy2y823mmayo4" path="res://Themes/buttons.tres" id="4_hvj8k"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38txh"]
-draw_center = false
-border_width_left = 15
-border_width_top = 15
-border_width_right = 15
-border_width_bottom = 15
-border_blend = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a0sy"]
-bg_color = Color(0, 0.9411765, 1, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_blend = true
+[ext_resource type="Texture2D" uid="uid://ce1nw71c7mmmo" path="res://Assets/Enemies/Swamers-1.png" id="5_hvj8k"]
 
 [node name="Options" type="Control" unique_id=823947185]
 layout_mode = 3
@@ -81,10 +67,16 @@ theme_override_colors/font_color = Color(0.827451, 0.8392157, 0.8784314, 1)
 theme_override_font_sizes/font_size = 32
 text = "Full Screen"
 
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=518265915]
+[node name="CheckButton" type="TextureButton" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=416277461]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_38txh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5a0sy")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("4_663nc")
+texture_pressed = ExtResource("5_hvj8k")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="MasterVolLabel" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=78600311]
 layout_mode = 2
@@ -93,8 +85,12 @@ theme_override_font_sizes/font_size = 32
 text = "Master Volume"
 
 [node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=80484090]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="MusicVolLabel" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=1749645306]
 layout_mode = 2
@@ -105,6 +101,9 @@ text = "Music Volume"
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=809703127]
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="SFXVolLabel" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=1008536890]
 layout_mode = 2
@@ -115,6 +114,9 @@ text = "SFX Volume"
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid" unique_id=1485191829]
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="NavBack" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=600397547]
 layout_mode = 2
@@ -128,4 +130,8 @@ theme = ExtResource("4_hvj8k")
 theme_override_font_sizes/font_size = 36
 text = "Back"
 
+[connection signal="toggled" from="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/CenterContainer/SettingsGrid/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NavBack/BackButton" to="." method="_on_back_button_pressed"]

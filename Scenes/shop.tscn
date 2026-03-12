@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bm1el4hd612c1" path="res://Assets/Extras/CoinOrbs.png" id="3_s8dlv"]
 [ext_resource type="Texture2D" uid="uid://bgv6cuicbe5nh" path="res://Assets/MC/Spaceships-id-2.png" id="4_3ps1r"]
 [ext_resource type="Theme" uid="uid://dvgu3htclnxq3" path="res://Themes/blue.tres" id="5_k6jq0"]
-[ext_resource type="Texture2D" uid="uid://dxs0hug3rioq7" path="res://Assets/MC/Spaceships-id-3.png" id="5_s8dlv"]
-[ext_resource type="Texture2D" uid="uid://d2i4gru0c5lw7" path="res://Assets/MC/Spaceships-id-4.png" id="6_tyrku"]
+[ext_resource type="Texture2D" uid="uid://b81oxbya6il66" path="res://Assets/MC/Spaceships-opensource-2disabled.png" id="5_s8dlv"]
+[ext_resource type="Texture2D" uid="uid://bvsdtbawqy7ac" path="res://Assets/MC/Spaceships-opensource-3disabled.png" id="6_tyrku"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io27d"]
 bg_color = Color(0.06666667, 0.043137256, 0.06666667, 0.78431374)
@@ -106,6 +106,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+disabled = true
 texture_normal = ExtResource("5_s8dlv")
 ignore_texture_size = true
 stretch_mode = 0
@@ -113,6 +114,7 @@ stretch_mode = 0
 [node name="ShipButton3" type="TextureButton" parent="MarginContainer/MainVBox/MainSplit/ScrollContainer/GridContainer" unique_id=1049338228]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("6_tyrku")
 ignore_texture_size = true
 stretch_mode = 0
