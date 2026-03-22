@@ -13,7 +13,6 @@ extends Control
 # INITIALIZATION 
 func _ready() -> void:
 	PlayerData.render_coins(coins)
-	Global.check_for_endless_button(endless)
 
 # BUTTONS 
 func _on_play_button_pressed() -> void:

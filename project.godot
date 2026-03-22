@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Space Shooter"
+config/name="Space Shooter (4.6)"
 run/main_scene="uid://bfhhy2axnjpom"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
